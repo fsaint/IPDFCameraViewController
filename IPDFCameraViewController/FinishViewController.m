@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    if (self.preview_image){
+        self.preview_image_view.image = self.preview_image;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

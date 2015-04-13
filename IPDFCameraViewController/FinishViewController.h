@@ -11,5 +11,6 @@
 @interface FinishViewController : UIViewController <UIDocumentInteractionControllerDelegate>
 @property (nonatomic,strong) NSString *file_path;
 @property (weak, nonatomic) IBOutlet UIImageView *preview_image_view;
+@property (nonatomic, strong) UIImage *preview_image;
 
 @end

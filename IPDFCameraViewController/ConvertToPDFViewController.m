@@ -124,7 +124,7 @@
         NSLog(@"Finished");
         FinishViewController *dest = (FinishViewController *) segue.destinationViewController;
         dest.file_path = self.output_path;
-        dest.preview_image_view.image = self.pages[0];
+        dest.preview_image = self.pages[0];
         
         
     }

@@ -65,7 +65,7 @@
     
     
     cell.imageView.image = [self.page_list objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"Page %d",indexPath.row + 1];
+    cell.textLabel.text = [NSString stringWithFormat:@"Page %@",@(indexPath.row + 1)];
     return cell;
 }
 
