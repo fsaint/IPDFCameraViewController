@@ -106,10 +106,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    NSIndexPath *selected =  [self.tableView indexPathForSelectedRow];
-    SinglePlageViewController *single_page = (SinglePlageViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
+    if ([segue.identifier isEqualToString:@"details"]){
+        NSIndexPath *selected =  [self.tableView indexPathForSelectedRow];
+        SinglePlageViewController *single_page = (SinglePlageViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
+        single_page.page_image = [self.page_list objectAtIndex:selected.row];
+    }else{
     
-    single_page.page_image = [self.page_list objectAtIndex:selected.row];
+    
+    }
 }
 
 @end
