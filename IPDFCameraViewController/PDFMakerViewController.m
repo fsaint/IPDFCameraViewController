@@ -9,7 +9,7 @@
 #import "PDFMakerViewController.h"
 
 #import "SinglePlageViewController.h"
-
+#import "ConvertToPDFViewController.h"
 @interface PDFMakerViewController ()
 @property (nonatomic, strong) NSMutableArray *page_list;
 
@@ -111,8 +111,10 @@
         SinglePlageViewController *single_page = (SinglePlageViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
         single_page.page_image = [self.page_list objectAtIndex:selected.row];
     }else{
-    
-    
+        ConvertToPDFViewController *convert = (ConvertToPDFViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
+        convert.pages =  self.page_list;
+        
+        
     }
 }
 

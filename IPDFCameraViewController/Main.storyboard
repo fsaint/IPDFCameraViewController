@@ -117,10 +117,10 @@
             </objects>
             <point key="canvasLocation" x="3752" y="366"/>
         </scene>
-        <!--View Controller-->
+        <!--Finish View Controller-->
         <scene sceneID="ie5-T1-Dot">
             <objects>
-                <viewController id="U9f-eH-0Mx" sceneMemberID="viewController">
+                <viewController id="U9f-eH-0Mx" customClass="FinishViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="P5N-0K-Jt6"/>
                         <viewControllerLayoutGuide type="bottom" id="82W-08-LA3"/>
@@ -129,19 +129,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulJ-hL-9sR">
-                                <rect key="frame" x="219" y="550" width="162" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9SP-q0-qpi"/>
-                                    <constraint firstAttribute="width" constant="162" id="NGQ-q2-Zw6"/>
-                                </constraints>
-                                <state key="normal" title="Open in Another App ...">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qcP-IT-4q1">
-                                <rect key="frame" x="0.0" y="57" width="600" height="485"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Done!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdT-iv-6Di">
                                 <rect key="frame" x="277" y="28" width="46" height="21"/>
                                 <constraints>
@@ -152,11 +139,42 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulJ-hL-9sR">
+                                <rect key="frame" x="219" y="550" width="162" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9SP-q0-qpi"/>
+                                    <constraint firstAttribute="width" constant="162" id="NGQ-q2-Zw6"/>
+                                </constraints>
+                                <state key="normal" title="Open in Another App ...">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openInOtherApp:" destination="U9f-eH-0Mx" eventType="touchUpInside" id="xeA-Qc-9zO"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qcP-IT-4q1">
+                                <rect key="frame" x="0.0" y="57" width="600" height="485"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUn-6d-HvS">
+                                <rect key="frame" x="544" y="550" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="gbm-nY-laT"/>
+                                    <constraint firstAttribute="width" constant="40" id="yIw-Vb-1rp"/>
+                                </constraints>
+                                <state key="normal" title="Close">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="close:" destination="U9f-eH-0Mx" eventType="touchUpInside" id="nHt-lS-c3c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="82W-08-LA3" firstAttribute="top" secondItem="rUn-6d-HvS" secondAttribute="bottom" constant="20" id="06E-4B-zD7"/>
                             <constraint firstAttribute="centerX" secondItem="hdT-iv-6Di" secondAttribute="centerX" id="9HQ-Ut-kOn"/>
                             <constraint firstItem="ulJ-hL-9sR" firstAttribute="top" secondItem="qcP-IT-4q1" secondAttribute="bottom" constant="8" id="BPX-b9-goe"/>
+                            <constraint firstItem="rUn-6d-HvS" firstAttribute="trailing" secondItem="tPV-TJ-9ed" secondAttribute="trailingMargin" id="C5j-ra-iDp"/>
                             <constraint firstItem="qcP-IT-4q1" firstAttribute="leading" secondItem="tPV-TJ-9ed" secondAttribute="leadingMargin" constant="-16" id="KO8-KO-3Pa"/>
                             <constraint firstAttribute="centerX" secondItem="ulJ-hL-9sR" secondAttribute="centerX" id="KOY-B1-afn"/>
                             <constraint firstItem="82W-08-LA3" firstAttribute="top" secondItem="ulJ-hL-9sR" secondAttribute="bottom" constant="20" id="VJo-fG-JyS"/>
@@ -165,6 +183,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="qcP-IT-4q1" secondAttribute="trailing" constant="-16" id="xX1-OP-FN8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="preview_image_view" destination="qcP-IT-4q1" id="lNd-Tw-pyu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Zw-jC-HmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

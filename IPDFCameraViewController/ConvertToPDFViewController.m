@@ -7,6 +7,8 @@
 //
 #define PDF_IMAGE_QUALITY 0.7
 #import "ConvertToPDFViewController.h"
+#import "FinishViewController.h"
+
 
 @interface ConvertToPDFViewController ()
 @property (nonatomic,strong) NSString *output_path;
@@ -120,6 +122,11 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"finish"]){
         NSLog(@"Finished");
+        FinishViewController *dest = (FinishViewController *) segue.destinationViewController;
+        dest.file_path = self.output_path;
+        dest.preview_image_view.image = self.pages[0];
+        
+        
     }
 }
 

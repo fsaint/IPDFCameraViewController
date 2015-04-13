@@ -18,6 +18,7 @@
 		B52090331ADC3A2300E44C59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52090321ADC3A2300E44C59 /* Main.storyboard */; };
 		B52090361ADC499D00E44C59 /* SinglePlageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090351ADC499D00E44C59 /* SinglePlageViewController.m */; };
 		B52090391ADC56B700E44C59 /* ConvertToPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090381ADC56B700E44C59 /* ConvertToPDFViewController.m */; };
+		B520903C1ADC5E8200E44C59 /* FinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B520903B1ADC5E8200E44C59 /* FinishViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		B52090351ADC499D00E44C59 /* SinglePlageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinglePlageViewController.m; sourceTree = "<group>"; };
 		B52090371ADC56B700E44C59 /* ConvertToPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvertToPDFViewController.h; sourceTree = "<group>"; };
 		B52090381ADC56B700E44C59 /* ConvertToPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvertToPDFViewController.m; sourceTree = "<group>"; };
+		B520903A1ADC5E8200E44C59 /* FinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishViewController.h; sourceTree = "<group>"; };
+		B520903B1ADC5E8200E44C59 /* FinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				B52090321ADC3A2300E44C59 /* Main.storyboard */,
 				B52090371ADC56B700E44C59 /* ConvertToPDFViewController.h */,
 				B52090381ADC56B700E44C59 /* ConvertToPDFViewController.m */,
+				B520903A1ADC5E8200E44C59 /* FinishViewController.h */,
+				B520903B1ADC5E8200E44C59 /* FinishViewController.m */,
 			);
 			name = IPDFCameraViewControllerDemo;
 			path = IPDFCameraViewController;
@@ -183,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22F8A0351A62799E0099DC69 /* IPDFCameraView.m in Sources */,
+				B520903C1ADC5E8200E44C59 /* FinishViewController.m in Sources */,
 				22F8A0151A6279030099DC69 /* IPDFCameraViewController.m in Sources */,
 				B52090391ADC56B700E44C59 /* ConvertToPDFViewController.m in Sources */,
 				B52090311ADC399200E44C59 /* PDFMakerViewController.m in Sources */,
