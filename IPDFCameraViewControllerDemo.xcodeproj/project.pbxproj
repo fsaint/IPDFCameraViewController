@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		22F8A00F1A6279030099DC69 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F8A00E1A6279030099DC69 /* main.m */; };
 		22F8A0121A6279030099DC69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F8A0111A6279030099DC69 /* AppDelegate.m */; };
-		22F8A0151A6279030099DC69 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F8A0141A6279030099DC69 /* ViewController.m */; };
+		22F8A0151A6279030099DC69 /* IPDFCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F8A0141A6279030099DC69 /* IPDFCameraViewController.m */; };
 		22F8A0181A6279030099DC69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F8A0161A6279030099DC69 /* Main.storyboard */; };
 		22F8A01A1A6279030099DC69 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F8A0191A6279030099DC69 /* Images.xcassets */; };
 		22F8A01D1A6279030099DC69 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22F8A01B1A6279030099DC69 /* LaunchScreen.xib */; };
-		22F8A0351A62799E0099DC69 /* IPDFCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F8A0341A62799E0099DC69 /* IPDFCameraViewController.m */; };
+		22F8A0351A62799E0099DC69 /* IPDFCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F8A0341A62799E0099DC69 /* IPDFCameraView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,13 +22,13 @@
 		22F8A00E1A6279030099DC69 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22F8A0101A6279030099DC69 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22F8A0111A6279030099DC69 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		22F8A0131A6279030099DC69 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		22F8A0141A6279030099DC69 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		22F8A0131A6279030099DC69 /* IPDFCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPDFCameraViewController.h; sourceTree = "<group>"; };
+		22F8A0141A6279030099DC69 /* IPDFCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IPDFCameraViewController.m; sourceTree = "<group>"; };
 		22F8A0171A6279030099DC69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22F8A0191A6279030099DC69 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		22F8A01C1A6279030099DC69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		22F8A0331A62799E0099DC69 /* IPDFCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPDFCameraViewController.h; sourceTree = "<group>"; };
-		22F8A0341A62799E0099DC69 /* IPDFCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPDFCameraViewController.m; sourceTree = "<group>"; };
+		22F8A0331A62799E0099DC69 /* IPDFCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPDFCameraView.h; sourceTree = "<group>"; };
+		22F8A0341A62799E0099DC69 /* IPDFCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPDFCameraView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +63,8 @@
 			children = (
 				22F8A0101A6279030099DC69 /* AppDelegate.h */,
 				22F8A0111A6279030099DC69 /* AppDelegate.m */,
-				22F8A0131A6279030099DC69 /* ViewController.h */,
-				22F8A0141A6279030099DC69 /* ViewController.m */,
+				22F8A0131A6279030099DC69 /* IPDFCameraViewController.h */,
+				22F8A0141A6279030099DC69 /* IPDFCameraViewController.m */,
 				22F8A0321A6279850099DC69 /* IPDFCameraViewController */,
 				22F8A0161A6279030099DC69 /* Main.storyboard */,
 				22F8A01B1A6279030099DC69 /* LaunchScreen.xib */,
@@ -87,8 +87,8 @@
 		22F8A0321A6279850099DC69 /* IPDFCameraViewController */ = {
 			isa = PBXGroup;
 			children = (
-				22F8A0331A62799E0099DC69 /* IPDFCameraViewController.h */,
-				22F8A0341A62799E0099DC69 /* IPDFCameraViewController.m */,
+				22F8A0331A62799E0099DC69 /* IPDFCameraView.h */,
+				22F8A0341A62799E0099DC69 /* IPDFCameraView.m */,
 			);
 			name = IPDFCameraViewController;
 			sourceTree = "<group>";
@@ -163,8 +163,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22F8A0351A62799E0099DC69 /* IPDFCameraViewController.m in Sources */,
-				22F8A0151A6279030099DC69 /* ViewController.m in Sources */,
+				22F8A0351A62799E0099DC69 /* IPDFCameraView.m in Sources */,
+				22F8A0151A6279030099DC69 /* IPDFCameraViewController.m in Sources */,
 				22F8A0121A6279030099DC69 /* AppDelegate.m in Sources */,
 				22F8A00F1A6279030099DC69 /* main.m in Sources */,
 			);
@@ -307,6 +307,7 @@
 				22F8A02E1A6279040099DC69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

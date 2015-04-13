@@ -1,33 +1,24 @@
 //
-//  IPDFCameraViewController.h
-//  InstaPDF
+//  ViewController.h
+//  IPDFCameraViewController
 //
-//  Created by Maximilian Mackh on 06/01/15.
-//  Copyright (c) 2015 mackh ag. All rights reserved.
+//  Created by Maximilian Mackh on 11/01/15.
+//  Copyright (c) 2015 Maximilian Mackh. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger,IPDFCameraViewType)
-{
-    IPDFCameraViewTypeBlackAndWhite,
-    IPDFCameraViewTypeNormal
-};
+@protocol IPDFCameraViewControllerDelegate <NSObject>
 
-@interface IPDFCameraViewController : UIView
-
-- (void)setupCameraView;
-
-- (void)start;
-- (void)stop;
-
-@property (nonatomic,assign,getter=isBorderDetectionEnabled) BOOL enableBorderDetection;
-@property (nonatomic,assign,getter=isTorchEnabled) BOOL enableTorch;
-
-@property (nonatomic,assign) IPDFCameraViewType cameraViewType;
-
-- (void)focusAtPoint:(CGPoint)point completionHandler:(void(^)())completionHandler;
-
-- (void)captureImageWithCompletionHander:(void(^)(id data))completionHandler;
+-(void)pageSnapped:(UIImage *)page_image from:(UIViewController *)controller;
 
 @end
+
+@interface IPDFCameraViewController : UIViewController
+
+@property (weak, nonatomic) id<IPDFCameraViewControllerDelegate> camera_delegate;
+
+@property (weak, nonatomic) IBOutlet UIButton *flash_toggle;
+
+@end
+
