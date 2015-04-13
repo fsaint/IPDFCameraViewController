@@ -16,6 +16,7 @@
 		22F8A0351A62799E0099DC69 /* IPDFCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F8A0341A62799E0099DC69 /* IPDFCameraView.m */; };
 		B52090311ADC399200E44C59 /* PDFMakerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090301ADC399200E44C59 /* PDFMakerViewController.m */; };
 		B52090331ADC3A2300E44C59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52090321ADC3A2300E44C59 /* Main.storyboard */; };
+		B52090361ADC499D00E44C59 /* SinglePlageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090351ADC499D00E44C59 /* SinglePlageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		B520902F1ADC399200E44C59 /* PDFMakerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFMakerViewController.h; sourceTree = "<group>"; };
 		B52090301ADC399200E44C59 /* PDFMakerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFMakerViewController.m; sourceTree = "<group>"; };
 		B52090321ADC3A2300E44C59 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B52090341ADC499D00E44C59 /* SinglePlageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinglePlageViewController.h; sourceTree = "<group>"; };
+		B52090351ADC499D00E44C59 /* SinglePlageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinglePlageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,8 @@
 				22F8A0111A6279030099DC69 /* AppDelegate.m */,
 				B520902F1ADC399200E44C59 /* PDFMakerViewController.h */,
 				B52090301ADC399200E44C59 /* PDFMakerViewController.m */,
+				B52090341ADC499D00E44C59 /* SinglePlageViewController.h */,
+				B52090351ADC499D00E44C59 /* SinglePlageViewController.m */,
 				22F8A0321A6279850099DC69 /* IPDFCameraViewController */,
 				22F8A01B1A6279030099DC69 /* LaunchScreen.xib */,
 				22F8A0191A6279030099DC69 /* Images.xcassets */,
@@ -176,6 +181,7 @@
 				22F8A0151A6279030099DC69 /* IPDFCameraViewController.m in Sources */,
 				B52090311ADC399200E44C59 /* PDFMakerViewController.m in Sources */,
 				22F8A0121A6279030099DC69 /* AppDelegate.m in Sources */,
+				B52090361ADC499D00E44C59 /* SinglePlageViewController.m in Sources */,
 				22F8A00F1A6279030099DC69 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

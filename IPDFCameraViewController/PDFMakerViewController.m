@@ -8,7 +8,7 @@
 
 #import "PDFMakerViewController.h"
 
-
+#import "SinglePlageViewController.h"
 
 @interface PDFMakerViewController ()
 @property (nonatomic, strong) NSMutableArray *page_list;
@@ -16,6 +16,7 @@
 @end
 
 @implementation PDFMakerViewController
+
 
 -(void)pageSnapped:(UIImage *)page_image from:(UIViewController *)controller{
     [self.page_list addObject:page_image];
@@ -64,7 +65,7 @@
     
     
     cell.imageView.image = [self.page_list objectAtIndex:indexPath.row];
-    
+    cell.textLabel.text = [NSString stringWithFormat:@"Page %d",indexPath.row + 1];
     return cell;
 }
 
@@ -80,6 +81,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [self.page_list removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -99,14 +101,15 @@
     return YES;
 }
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSIndexPath *selected =  [self.tableView indexPathForSelectedRow];
+    SinglePlageViewController *single_page = (SinglePlageViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
+    
+    single_page.page_image = [self.page_list objectAtIndex:selected.row];
 }
-*/
 
 @end
