@@ -459,7 +459,4 @@ BOOL rectangleDetectionConfidenceHighEnough(float confidence)
     return (confidence > 1.0);
 }
 
-
-
-
 @end

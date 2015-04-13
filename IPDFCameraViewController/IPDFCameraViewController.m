@@ -139,7 +139,6 @@
     {
         UIImage *image = ([data isKindOfClass:[NSData class]]) ? [UIImage imageWithData:data] : data;
         if (self.camera_delegate){
-            
             [self.camera_delegate pageSnapped:image from:self];
         }
     }];

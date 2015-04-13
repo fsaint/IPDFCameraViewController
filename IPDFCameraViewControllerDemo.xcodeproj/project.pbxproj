@@ -10,10 +10,12 @@
 		22F8A00F1A6279030099DC69 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F8A00E1A6279030099DC69 /* main.m */; };
 		22F8A0121A6279030099DC69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F8A0111A6279030099DC69 /* AppDelegate.m */; };
 		22F8A0151A6279030099DC69 /* IPDFCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F8A0141A6279030099DC69 /* IPDFCameraViewController.m */; };
-		22F8A0181A6279030099DC69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F8A0161A6279030099DC69 /* Main.storyboard */; };
+		22F8A0181A6279030099DC69 /* IPDFCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F8A0161A6279030099DC69 /* IPDFCamera.storyboard */; };
 		22F8A01A1A6279030099DC69 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F8A0191A6279030099DC69 /* Images.xcassets */; };
 		22F8A01D1A6279030099DC69 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22F8A01B1A6279030099DC69 /* LaunchScreen.xib */; };
 		22F8A0351A62799E0099DC69 /* IPDFCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F8A0341A62799E0099DC69 /* IPDFCameraView.m */; };
+		B52090311ADC399200E44C59 /* PDFMakerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090301ADC399200E44C59 /* PDFMakerViewController.m */; };
+		B52090331ADC3A2300E44C59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52090321ADC3A2300E44C59 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,11 +26,14 @@
 		22F8A0111A6279030099DC69 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		22F8A0131A6279030099DC69 /* IPDFCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPDFCameraViewController.h; sourceTree = "<group>"; };
 		22F8A0141A6279030099DC69 /* IPDFCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IPDFCameraViewController.m; sourceTree = "<group>"; };
-		22F8A0171A6279030099DC69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		22F8A0171A6279030099DC69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/IPDFCamera.storyboard; sourceTree = "<group>"; };
 		22F8A0191A6279030099DC69 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		22F8A01C1A6279030099DC69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		22F8A0331A62799E0099DC69 /* IPDFCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPDFCameraView.h; sourceTree = "<group>"; };
 		22F8A0341A62799E0099DC69 /* IPDFCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPDFCameraView.m; sourceTree = "<group>"; };
+		B520902F1ADC399200E44C59 /* PDFMakerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFMakerViewController.h; sourceTree = "<group>"; };
+		B52090301ADC399200E44C59 /* PDFMakerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFMakerViewController.m; sourceTree = "<group>"; };
+		B52090321ADC3A2300E44C59 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,13 +68,13 @@
 			children = (
 				22F8A0101A6279030099DC69 /* AppDelegate.h */,
 				22F8A0111A6279030099DC69 /* AppDelegate.m */,
-				22F8A0131A6279030099DC69 /* IPDFCameraViewController.h */,
-				22F8A0141A6279030099DC69 /* IPDFCameraViewController.m */,
+				B520902F1ADC399200E44C59 /* PDFMakerViewController.h */,
+				B52090301ADC399200E44C59 /* PDFMakerViewController.m */,
 				22F8A0321A6279850099DC69 /* IPDFCameraViewController */,
-				22F8A0161A6279030099DC69 /* Main.storyboard */,
 				22F8A01B1A6279030099DC69 /* LaunchScreen.xib */,
 				22F8A0191A6279030099DC69 /* Images.xcassets */,
 				22F8A00C1A6279030099DC69 /* Supporting Files */,
+				B52090321ADC3A2300E44C59 /* Main.storyboard */,
 			);
 			name = IPDFCameraViewControllerDemo;
 			path = IPDFCameraViewController;
@@ -87,6 +92,9 @@
 		22F8A0321A6279850099DC69 /* IPDFCameraViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22F8A0161A6279030099DC69 /* IPDFCamera.storyboard */,
+				22F8A0131A6279030099DC69 /* IPDFCameraViewController.h */,
+				22F8A0141A6279030099DC69 /* IPDFCameraViewController.m */,
 				22F8A0331A62799E0099DC69 /* IPDFCameraView.h */,
 				22F8A0341A62799E0099DC69 /* IPDFCameraView.m */,
 			);
@@ -150,9 +158,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22F8A0181A6279030099DC69 /* Main.storyboard in Resources */,
+				22F8A0181A6279030099DC69 /* IPDFCamera.storyboard in Resources */,
 				22F8A01D1A6279030099DC69 /* LaunchScreen.xib in Resources */,
 				22F8A01A1A6279030099DC69 /* Images.xcassets in Resources */,
+				B52090331ADC3A2300E44C59 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +174,7 @@
 			files = (
 				22F8A0351A62799E0099DC69 /* IPDFCameraView.m in Sources */,
 				22F8A0151A6279030099DC69 /* IPDFCameraViewController.m in Sources */,
+				B52090311ADC399200E44C59 /* PDFMakerViewController.m in Sources */,
 				22F8A0121A6279030099DC69 /* AppDelegate.m in Sources */,
 				22F8A00F1A6279030099DC69 /* main.m in Sources */,
 			);
@@ -173,12 +183,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		22F8A0161A6279030099DC69 /* Main.storyboard */ = {
+		22F8A0161A6279030099DC69 /* IPDFCamera.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				22F8A0171A6279030099DC69 /* Base */,
 			);
-			name = Main.storyboard;
+			name = IPDFCamera.storyboard;
 			sourceTree = "<group>";
 		};
 		22F8A01B1A6279030099DC69 /* LaunchScreen.xib */ = {
@@ -275,6 +285,7 @@
 				INFOPLIST_FILE = IPDFCameraViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = IPDFCameraViewControllerDemo;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -285,6 +296,7 @@
 				INFOPLIST_FILE = IPDFCameraViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = IPDFCameraViewControllerDemo;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
