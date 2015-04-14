@@ -151,6 +151,29 @@
     });
 }
 
+- (AVCaptureVideoOrientation) videoOrientationFromCurrentDeviceOrientation {
+    switch ([UIDevice currentDevice].orientation) {
+        case UIInterfaceOrientationPortrait: {
+            return AVCaptureVideoOrientationPortrait;
+        }
+        case UIInterfaceOrientationLandscapeLeft: {
+            return AVCaptureVideoOrientationLandscapeLeft;
+        }
+        case UIInterfaceOrientationLandscapeRight: {
+            return AVCaptureVideoOrientationLandscapeRight;
+        }
+        case UIInterfaceOrientationPortraitUpsideDown: {
+            return AVCaptureVideoOrientationPortraitUpsideDown;
+        }
+        case UIDeviceOrientationUnknown:
+        case UIDeviceOrientationFaceUp:
+        case UIDeviceOrientationFaceDown:
+            return AVCaptureVideoOrientationPortrait;
+    }
+    
+    return AVCaptureVideoOrientationPortrait;
+}
+
 -(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {
     if (self.forceStop) return;
