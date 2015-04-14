@@ -7,44 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22F8A0151A6279030099DC69 /* IPDFCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F8A0141A6279030099DC69 /* IPDFCameraViewController.m */; };
-		22F8A0181A6279030099DC69 /* IPDFCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F8A0161A6279030099DC69 /* IPDFCamera.storyboard */; };
-		22F8A01A1A6279030099DC69 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F8A0191A6279030099DC69 /* Images.xcassets */; };
-		22F8A0351A62799E0099DC69 /* IPDFCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F8A0341A62799E0099DC69 /* IPDFCameraView.m */; };
-		B52090311ADC399200E44C59 /* PDFMakerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090301ADC399200E44C59 /* PDFMakerViewController.m */; };
-		B52090331ADC3A2300E44C59 /* PDFMakerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52090321ADC3A2300E44C59 /* PDFMakerViewController.storyboard */; };
-		B52090361ADC499D00E44C59 /* SinglePlageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090351ADC499D00E44C59 /* SinglePlageViewController.m */; };
-		B52090391ADC56B700E44C59 /* ConvertToPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090381ADC56B700E44C59 /* ConvertToPDFViewController.m */; };
-		B520903C1ADC5E8200E44C59 /* FinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B520903B1ADC5E8200E44C59 /* FinishViewController.m */; };
 		B52090711ADD767000E44C59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B520906F1ADD767000E44C59 /* AppDelegate.m */; };
-		B52090731ADD76EF00E44C59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090721ADD76EF00E44C59 /* main.m */; };
-		B52090751ADD775400E44C59 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B52090741ADD775400E44C59 /* Info.plist */; };
 		B52090771ADD778400E44C59 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52090761ADD778400E44C59 /* LaunchScreen.xib */; };
+		B520908D1ADD7B3F00E44C59 /* SinglePlageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090791ADD7B3F00E44C59 /* SinglePlageViewController.m */; };
+		B520908E1ADD7B3F00E44C59 /* PDFMakerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B520907B1ADD7B3F00E44C59 /* PDFMakerViewController.storyboard */; };
+		B520908F1ADD7B3F00E44C59 /* PDFMakerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B520907C1ADD7B3F00E44C59 /* PDFMakerViewController.m */; };
+		B52090901ADD7B3F00E44C59 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B520907E1ADD7B3F00E44C59 /* LaunchScreen.xib */; };
+		B52090911ADD7B3F00E44C59 /* IPDFCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B520907F1ADD7B3F00E44C59 /* IPDFCameraViewController.m */; };
+		B52090921ADD7B3F00E44C59 /* IPDFCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090811ADD7B3F00E44C59 /* IPDFCameraView.m */; };
+		B52090931ADD7B3F00E44C59 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52090831ADD7B3F00E44C59 /* Images.xcassets */; };
+		B52090941ADD7B3F00E44C59 /* FinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090841ADD7B3F00E44C59 /* FinishViewController.m */; };
+		B52090951ADD7B3F00E44C59 /* ConvertToPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090861ADD7B3F00E44C59 /* ConvertToPDFViewController.m */; };
+		B52090961ADD7B3F00E44C59 /* IPDFCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52090891ADD7B3F00E44C59 /* IPDFCamera.storyboard */; };
+		B520909A1ADD7B8400E44C59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090981ADD7B8400E44C59 /* main.m */; };
+		B520909B1ADD7B8400E44C59 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B52090991ADD7B8400E44C59 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		22F8A0091A6279030099DC69 /* IPDFCameraViewControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPDFCameraViewControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		22F8A00D1A6279030099DC69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22F8A0131A6279030099DC69 /* IPDFCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPDFCameraViewController.h; sourceTree = "<group>"; };
-		22F8A0141A6279030099DC69 /* IPDFCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IPDFCameraViewController.m; sourceTree = "<group>"; };
-		22F8A0171A6279030099DC69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/IPDFCamera.storyboard; sourceTree = "<group>"; };
-		22F8A0191A6279030099DC69 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		22F8A0331A62799E0099DC69 /* IPDFCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPDFCameraView.h; sourceTree = "<group>"; };
-		22F8A0341A62799E0099DC69 /* IPDFCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPDFCameraView.m; sourceTree = "<group>"; };
-		B520902F1ADC399200E44C59 /* PDFMakerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFMakerViewController.h; sourceTree = "<group>"; };
-		B52090301ADC399200E44C59 /* PDFMakerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFMakerViewController.m; sourceTree = "<group>"; };
-		B52090321ADC3A2300E44C59 /* PDFMakerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PDFMakerViewController.storyboard; sourceTree = "<group>"; };
-		B52090341ADC499D00E44C59 /* SinglePlageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinglePlageViewController.h; sourceTree = "<group>"; };
-		B52090351ADC499D00E44C59 /* SinglePlageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinglePlageViewController.m; sourceTree = "<group>"; };
-		B52090371ADC56B700E44C59 /* ConvertToPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvertToPDFViewController.h; sourceTree = "<group>"; };
-		B52090381ADC56B700E44C59 /* ConvertToPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvertToPDFViewController.m; sourceTree = "<group>"; };
-		B520903A1ADC5E8200E44C59 /* FinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishViewController.h; sourceTree = "<group>"; };
-		B520903B1ADC5E8200E44C59 /* FinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishViewController.m; sourceTree = "<group>"; };
 		B520906F1ADD767000E44C59 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B52090701ADD767000E44C59 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B52090721ADD76EF00E44C59 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B52090741ADD775400E44C59 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B52090761ADD778400E44C59 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		B52090791ADD7B3F00E44C59 /* SinglePlageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinglePlageViewController.m; sourceTree = "<group>"; };
+		B520907A1ADD7B3F00E44C59 /* SinglePlageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinglePlageViewController.h; sourceTree = "<group>"; };
+		B520907B1ADD7B3F00E44C59 /* PDFMakerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PDFMakerViewController.storyboard; sourceTree = "<group>"; };
+		B520907C1ADD7B3F00E44C59 /* PDFMakerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFMakerViewController.m; sourceTree = "<group>"; };
+		B520907D1ADD7B3F00E44C59 /* PDFMakerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFMakerViewController.h; sourceTree = "<group>"; };
+		B520907E1ADD7B3F00E44C59 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		B520907F1ADD7B3F00E44C59 /* IPDFCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPDFCameraViewController.m; sourceTree = "<group>"; };
+		B52090801ADD7B3F00E44C59 /* IPDFCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPDFCameraViewController.h; sourceTree = "<group>"; };
+		B52090811ADD7B3F00E44C59 /* IPDFCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPDFCameraView.m; sourceTree = "<group>"; };
+		B52090821ADD7B3F00E44C59 /* IPDFCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPDFCameraView.h; sourceTree = "<group>"; };
+		B52090831ADD7B3F00E44C59 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B52090841ADD7B3F00E44C59 /* FinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishViewController.m; sourceTree = "<group>"; };
+		B52090851ADD7B3F00E44C59 /* FinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishViewController.h; sourceTree = "<group>"; };
+		B52090861ADD7B3F00E44C59 /* ConvertToPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvertToPDFViewController.m; sourceTree = "<group>"; };
+		B52090871ADD7B3F00E44C59 /* ConvertToPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvertToPDFViewController.h; sourceTree = "<group>"; };
+		B520908A1ADD7B3F00E44C59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = IPDFCamera.storyboard; sourceTree = "<group>"; };
+		B52090981ADD7B8400E44C59 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B52090991ADD7B8400E44C59 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 		22F8A0001A6279030099DC69 = {
 			isa = PBXGroup;
 			children = (
+				B52090781ADD7B1400E44C59 /* IPDFCameraViewController */,
 				22F8A00B1A6279030099DC69 /* IPDFCameraViewControllerDemo */,
 				22F8A00A1A6279030099DC69 /* Products */,
 			);
@@ -77,46 +79,52 @@
 		22F8A00B1A6279030099DC69 /* IPDFCameraViewControllerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B52090981ADD7B8400E44C59 /* main.m */,
+				B52090991ADD7B8400E44C59 /* Info.plist */,
 				B52090761ADD778400E44C59 /* LaunchScreen.xib */,
 				B520906F1ADD767000E44C59 /* AppDelegate.m */,
 				B52090701ADD767000E44C59 /* AppDelegate.h */,
-				B520902F1ADC399200E44C59 /* PDFMakerViewController.h */,
-				B52090301ADC399200E44C59 /* PDFMakerViewController.m */,
-				B52090341ADC499D00E44C59 /* SinglePlageViewController.h */,
-				B52090351ADC499D00E44C59 /* SinglePlageViewController.m */,
-				22F8A0321A6279850099DC69 /* IPDFCameraViewController */,
-				22F8A0191A6279030099DC69 /* Images.xcassets */,
 				22F8A00C1A6279030099DC69 /* Supporting Files */,
-				B52090321ADC3A2300E44C59 /* PDFMakerViewController.storyboard */,
-				B52090371ADC56B700E44C59 /* ConvertToPDFViewController.h */,
-				B52090381ADC56B700E44C59 /* ConvertToPDFViewController.m */,
-				B520903A1ADC5E8200E44C59 /* FinishViewController.h */,
-				B520903B1ADC5E8200E44C59 /* FinishViewController.m */,
 			);
-			name = IPDFCameraViewControllerDemo;
-			path = IPDFCameraViewController;
+			path = IPDFCameraViewControllerDemo;
 			sourceTree = "<group>";
 		};
 		22F8A00C1A6279030099DC69 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B52090741ADD775400E44C59 /* Info.plist */,
-				B52090721ADD76EF00E44C59 /* main.m */,
-				22F8A00D1A6279030099DC69 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		22F8A0321A6279850099DC69 /* IPDFCameraViewController */ = {
+		B52090781ADD7B1400E44C59 /* IPDFCameraViewController */ = {
 			isa = PBXGroup;
 			children = (
-				22F8A0161A6279030099DC69 /* IPDFCamera.storyboard */,
-				22F8A0131A6279030099DC69 /* IPDFCameraViewController.h */,
-				22F8A0141A6279030099DC69 /* IPDFCameraViewController.m */,
-				22F8A0331A62799E0099DC69 /* IPDFCameraView.h */,
-				22F8A0341A62799E0099DC69 /* IPDFCameraView.m */,
+				B52090791ADD7B3F00E44C59 /* SinglePlageViewController.m */,
+				B520907A1ADD7B3F00E44C59 /* SinglePlageViewController.h */,
+				B520907B1ADD7B3F00E44C59 /* PDFMakerViewController.storyboard */,
+				B520907C1ADD7B3F00E44C59 /* PDFMakerViewController.m */,
+				B520907D1ADD7B3F00E44C59 /* PDFMakerViewController.h */,
+				B520907E1ADD7B3F00E44C59 /* LaunchScreen.xib */,
+				B520907F1ADD7B3F00E44C59 /* IPDFCameraViewController.m */,
+				B52090801ADD7B3F00E44C59 /* IPDFCameraViewController.h */,
+				B52090811ADD7B3F00E44C59 /* IPDFCameraView.m */,
+				B52090821ADD7B3F00E44C59 /* IPDFCameraView.h */,
+				B52090831ADD7B3F00E44C59 /* Images.xcassets */,
+				B52090841ADD7B3F00E44C59 /* FinishViewController.m */,
+				B52090851ADD7B3F00E44C59 /* FinishViewController.h */,
+				B52090861ADD7B3F00E44C59 /* ConvertToPDFViewController.m */,
+				B52090871ADD7B3F00E44C59 /* ConvertToPDFViewController.h */,
+				B52090881ADD7B3F00E44C59 /* Base.lproj */,
 			);
-			name = IPDFCameraViewController;
+			path = IPDFCameraViewController;
+			sourceTree = "<group>";
+		};
+		B52090881ADD7B3F00E44C59 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				B52090891ADD7B3F00E44C59 /* IPDFCamera.storyboard */,
+			);
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +158,7 @@
 				TargetAttributes = {
 					22F8A0081A6279030099DC69 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = A6MRYE94VC;
 					};
 				};
 			};
@@ -177,10 +186,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B52090771ADD778400E44C59 /* LaunchScreen.xib in Resources */,
-				22F8A0181A6279030099DC69 /* IPDFCamera.storyboard in Resources */,
-				22F8A01A1A6279030099DC69 /* Images.xcassets in Resources */,
-				B52090751ADD775400E44C59 /* Info.plist in Resources */,
-				B52090331ADC3A2300E44C59 /* PDFMakerViewController.storyboard in Resources */,
+				B52090931ADD7B3F00E44C59 /* Images.xcassets in Resources */,
+				B520909B1ADD7B8400E44C59 /* Info.plist in Resources */,
+				B52090901ADD7B3F00E44C59 /* LaunchScreen.xib in Resources */,
+				B52090961ADD7B3F00E44C59 /* IPDFCamera.storyboard in Resources */,
+				B520908E1ADD7B3F00E44C59 /* PDFMakerViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,24 +201,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22F8A0351A62799E0099DC69 /* IPDFCameraView.m in Sources */,
-				B520903C1ADC5E8200E44C59 /* FinishViewController.m in Sources */,
-				22F8A0151A6279030099DC69 /* IPDFCameraViewController.m in Sources */,
-				B52090391ADC56B700E44C59 /* ConvertToPDFViewController.m in Sources */,
+				B52090911ADD7B3F00E44C59 /* IPDFCameraViewController.m in Sources */,
+				B52090941ADD7B3F00E44C59 /* FinishViewController.m in Sources */,
+				B52090951ADD7B3F00E44C59 /* ConvertToPDFViewController.m in Sources */,
+				B520908D1ADD7B3F00E44C59 /* SinglePlageViewController.m in Sources */,
+				B520908F1ADD7B3F00E44C59 /* PDFMakerViewController.m in Sources */,
+				B52090921ADD7B3F00E44C59 /* IPDFCameraView.m in Sources */,
+				B520909A1ADD7B8400E44C59 /* main.m in Sources */,
 				B52090711ADD767000E44C59 /* AppDelegate.m in Sources */,
-				B52090311ADC399200E44C59 /* PDFMakerViewController.m in Sources */,
-				B52090731ADD76EF00E44C59 /* main.m in Sources */,
-				B52090361ADC499D00E44C59 /* SinglePlageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		22F8A0161A6279030099DC69 /* IPDFCamera.storyboard */ = {
+		B52090891ADD7B3F00E44C59 /* IPDFCamera.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				22F8A0171A6279030099DC69 /* Base */,
+				B520908A1ADD7B3F00E44C59 /* Base */,
 			);
 			name = IPDFCamera.storyboard;
 			sourceTree = "<group>";
@@ -296,7 +306,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = IPDFCameraViewController/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/IPDFCameraViewControllerDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = IPDFCameraViewControllerDemo;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -307,7 +318,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = IPDFCameraViewController/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/IPDFCameraViewControllerDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = IPDFCameraViewControllerDemo;
 				TARGETED_DEVICE_FAMILY = "1,2";
