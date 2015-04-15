@@ -145,7 +145,9 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
+   
     [self.cameraViewController stop];
 }
+
 
 @end

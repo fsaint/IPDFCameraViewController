@@ -159,6 +159,11 @@
 					22F8A0081A6279030099DC69 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = A6MRYE94VC;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -306,7 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iOS Development: Felipe Saint-Jean (T7YHBFV6N8)";
 				INFOPLIST_FILE = "$(SRCROOT)/IPDFCameraViewControllerDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = IPDFCameraViewControllerDemo;

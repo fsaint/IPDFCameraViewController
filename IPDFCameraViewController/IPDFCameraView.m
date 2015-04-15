@@ -43,6 +43,87 @@
     BOOL _isCapturing;
 }
 
+- (UIImage *)fixOrientation:(UIImage *)image {
+    
+    // No-op if the orientation is already correct
+    if (image.imageOrientation == UIImageOrientationUp) return image;
+    
+    // We need to calculate the proper transformation to make the image upright.
+    // We do it in 2 steps: Rotate if Left/Right/Down, and then flip if Mirrored.
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    
+    switch (image.imageOrientation) {
+        case UIImageOrientationDown:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.width, image.size.height);
+            transform = CGAffineTransformRotate(transform, M_PI);
+            break;
+            
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.width, 0);
+            transform = CGAffineTransformRotate(transform, M_PI_2);
+            break;
+            
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, 0, image.size.height);
+            transform = CGAffineTransformRotate(transform, -M_PI_2);
+            break;
+        case UIImageOrientationUp:
+        case UIImageOrientationUpMirrored:
+            break;
+    }
+    
+    switch (image.imageOrientation) {
+        case UIImageOrientationUpMirrored:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.width, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+            
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.height, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+        case UIImageOrientationUp:
+        case UIImageOrientationDown:
+        case UIImageOrientationLeft:
+        case UIImageOrientationRight:
+            break;
+    }
+    
+    // Now we draw the underlying CGImage into a new context, applying the transform
+    // calculated above.
+    CGContextRef ctx = CGBitmapContextCreate(NULL, image.size.width, image.size.height,
+                                             CGImageGetBitsPerComponent(image.CGImage), 0,
+                                             CGImageGetColorSpace(image.CGImage),
+                                             CGImageGetBitmapInfo(image.CGImage));
+    CGContextConcatCTM(ctx, transform);
+    switch (image.imageOrientation) {
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            // Grr...
+            CGContextDrawImage(ctx, CGRectMake(0,0,image.size.height,image.size.width), image.CGImage);
+            break;
+            
+        default:
+            CGContextDrawImage(ctx, CGRectMake(0,0,image.size.width,image.size.height), image.CGImage);
+            break;
+    }
+    
+    // And now we just create a new UIImage from the drawing context
+    CGImageRef cgimg = CGBitmapContextCreateImage(ctx);
+    UIImage *img = [UIImage imageWithCGImage:cgimg];
+    CGContextRelease(ctx);
+    CGImageRelease(cgimg);
+    return img;
+}
+
+
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -116,7 +197,7 @@
     [session addOutput:self.stillImageOutput];
     
     AVCaptureConnection *connection = [dataOutput.connections firstObject];
-    [connection setVideoOrientation:AVCaptureVideoOrientationPortrait];
+    [connection setVideoOrientation:[self videoOrientationFromCurrentDeviceOrientation]];
     
     if (device.isFlashAvailable)
     {
@@ -151,8 +232,32 @@
     });
 }
 
+- (UIImageOrientation) imageFromCurrentDeviceOrientation {
+    
+    switch ([[UIApplication sharedApplication] statusBarOrientation]) {
+        case UIInterfaceOrientationPortrait: {
+            return UIImageOrientationRight;
+        }
+        case UIInterfaceOrientationLandscapeLeft: {
+            return UIImageOrientationDown;
+        }
+        case UIInterfaceOrientationLandscapeRight: {
+            return UIImageOrientationUp;
+        }
+        case UIInterfaceOrientationPortraitUpsideDown: {
+            return UIImageOrientationLeft;
+        }
+        case UIInterfaceOrientationUnknown:
+            return UIImageOrientationUp;
+    }
+    
+    return UIImageOrientationUp;
+}
+
+
 - (AVCaptureVideoOrientation) videoOrientationFromCurrentDeviceOrientation {
-    switch ([UIDevice currentDevice].orientation) {
+
+    switch ([[UIApplication sharedApplication] statusBarOrientation]) {
         case UIInterfaceOrientationPortrait: {
             return AVCaptureVideoOrientationPortrait;
         }
@@ -165,9 +270,7 @@
         case UIInterfaceOrientationPortraitUpsideDown: {
             return AVCaptureVideoOrientationPortraitUpsideDown;
         }
-        case UIDeviceOrientationUnknown:
-        case UIDeviceOrientationFaceUp:
-        case UIDeviceOrientationFaceDown:
+        case UIInterfaceOrientationUnknown:
             return AVCaptureVideoOrientationPortrait;
     }
     
@@ -214,6 +317,7 @@
     
     if (self.context && _coreImageContext)
     {
+        
         [_coreImageContext drawImage:image inRect:self.bounds fromRect:image.extent];
         [self.context presentRenderbuffer:GL_RENDERBUFFER];
         
@@ -374,8 +478,18 @@
                  }
              }
              
-             UIGraphicsBeginImageContext(CGSizeMake(enhancedImage.extent.size.height, enhancedImage.extent.size.width));
-             [[UIImage imageWithCIImage:enhancedImage scale:1.0 orientation:UIImageOrientationRight] drawInRect:CGRectMake(0,0, enhancedImage.extent.size.height, enhancedImage.extent.size.width)];
+             
+             UIImageOrientation orientation = [self imageFromCurrentDeviceOrientation];
+             
+             CGFloat w = enhancedImage.extent.size.width,h =  enhancedImage.extent.size.height;
+             
+             if (orientation == UIImageOrientationLeft || orientation == UIImageOrientationRight){
+                 h = enhancedImage.extent.size.width;
+                 w = enhancedImage.extent.size.height;
+             }
+             
+             UIGraphicsBeginImageContext(CGSizeMake(w, h));
+             [[UIImage imageWithCIImage:enhancedImage scale:1.0 orientation:orientation] drawInRect:CGRectMake(0,0, w, h)];
              UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
              UIGraphicsEndImageContext();
              
