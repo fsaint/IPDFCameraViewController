@@ -10,8 +10,11 @@
 
 #import "SinglePlageViewController.h"
 #import "ConvertToPDFViewController.h"
+#import "IPDFDocument.h"
+
+
 @interface PDFMakerViewController ()
-@property (nonatomic, strong) NSMutableArray *page_list;
+@property (nonatomic, strong) IPDFDocument *document;
 
 @end
 
@@ -19,7 +22,7 @@
 
 
 -(void)pageSnapped:(UIImage *)page_image from:(UIViewController *)controller{
-    [self.page_list addObject:page_image];
+    [self.document.page_images addObject:page_image];
     [self.tableView reloadData];
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
@@ -41,7 +44,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.page_list = [NSMutableArray array];
+    self.document = [IPDFDocument new];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,14 +60,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_page_list count];
+    return [_document.page_images count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CELL" forIndexPath:indexPath];
     
     
-    cell.imageView.image = [self.page_list objectAtIndex:indexPath.row];
+    cell.imageView.image = [_document.page_images objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"Page %@",@(indexPath.row + 1)];
     return cell;
 }
@@ -81,7 +84,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [self.page_list removeObjectAtIndex:indexPath.row];
+        [_document.page_images removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -109,10 +112,13 @@
     if ([segue.identifier isEqualToString:@"details"]){
         NSIndexPath *selected =  [self.tableView indexPathForSelectedRow];
         SinglePlageViewController *single_page = (SinglePlageViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
-        single_page.page_image = [self.page_list objectAtIndex:selected.row];
+        single_page.page_image = [_document.page_images objectAtIndex:selected.row];
     }else{
-        ConvertToPDFViewController *convert = (ConvertToPDFViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
-        convert.pages =  self.page_list;
+        
+        if ([self.document.page_images count] > 0){
+            ConvertToPDFViewController *convert = (ConvertToPDFViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
+            convert.document =  self.document;
+        }
         
         
     }

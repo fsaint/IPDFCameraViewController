@@ -67,7 +67,7 @@
         UIGraphicsBeginPDFContextToFile(pdfFileName, CGRectZero, nil);
         
         
-        [self.pages enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [self.document.page_images enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             @autoreleasepool {
                 
                 UIImage *image = (UIImage *)obj;
@@ -124,7 +124,7 @@
         NSLog(@"Finished");
         FinishViewController *dest = (FinishViewController *) segue.destinationViewController;
         dest.file_path = self.output_path;
-        dest.preview_image = self.pages[0];
+        dest.preview_image = self.document.page_images[0];
         
         
     }

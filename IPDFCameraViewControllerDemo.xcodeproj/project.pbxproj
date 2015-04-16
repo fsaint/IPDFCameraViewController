@@ -21,6 +21,7 @@
 		B52090961ADD7B3F00E44C59 /* IPDFCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52090891ADD7B3F00E44C59 /* IPDFCamera.storyboard */; };
 		B520909A1ADD7B8400E44C59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090981ADD7B8400E44C59 /* main.m */; };
 		B520909B1ADD7B8400E44C59 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B52090991ADD7B8400E44C59 /* Info.plist */; };
+		B52D4EDC1AE00C6800975FEF /* IPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = B52D4EDB1AE00C6800975FEF /* IPDFDocument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		B520908A1ADD7B3F00E44C59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = IPDFCamera.storyboard; sourceTree = "<group>"; };
 		B52090981ADD7B8400E44C59 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B52090991ADD7B8400E44C59 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B52D4EDA1AE00C6800975FEF /* IPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPDFDocument.h; sourceTree = "<group>"; };
+		B52D4EDB1AE00C6800975FEF /* IPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPDFDocument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				B52090861ADD7B3F00E44C59 /* ConvertToPDFViewController.m */,
 				B52090871ADD7B3F00E44C59 /* ConvertToPDFViewController.h */,
 				B52090881ADD7B3F00E44C59 /* Base.lproj */,
+				B52D4EDA1AE00C6800975FEF /* IPDFDocument.h */,
+				B52D4EDB1AE00C6800975FEF /* IPDFDocument.m */,
 			);
 			path = IPDFCameraViewController;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				B52090911ADD7B3F00E44C59 /* IPDFCameraViewController.m in Sources */,
 				B52090941ADD7B3F00E44C59 /* FinishViewController.m in Sources */,
 				B52090951ADD7B3F00E44C59 /* ConvertToPDFViewController.m in Sources */,
+				B52D4EDC1AE00C6800975FEF /* IPDFDocument.m in Sources */,
 				B520908D1ADD7B3F00E44C59 /* SinglePlageViewController.m in Sources */,
 				B520908F1ADD7B3F00E44C59 /* PDFMakerViewController.m in Sources */,
 				B52090921ADD7B3F00E44C59 /* IPDFCameraView.m in Sources */,

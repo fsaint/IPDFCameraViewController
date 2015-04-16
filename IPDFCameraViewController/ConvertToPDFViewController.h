@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IPDFDocument.h"
 
 @interface ConvertToPDFViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *progress_image_view;
-@property (nonatomic, strong) NSArray *pages;
+@property (nonatomic, strong) IPDFDocument *document;
 @end
