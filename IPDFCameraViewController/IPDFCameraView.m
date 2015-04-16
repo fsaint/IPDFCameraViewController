@@ -442,8 +442,10 @@
 
 - (CIImage *)filteredImageUsingEnhanceFilterOnImage:(CIImage *)image
 {
-    //return [CIFilter filterWithName:@"CIColorControls" keysAndValues:kCIInputImageKey, image, @"inputBrightness", [NSNumber numberWithFloat:0.0], @"inputContrast", [NSNumber numberWithFloat:1.14], @"inputSaturation", [NSNumber numberWithFloat:0.0], nil].outputImage;
+    return [CIFilter filterWithName:@"CIColorControls" keysAndValues:kCIInputImageKey, image, @"inputBrightness", [NSNumber numberWithFloat:0.0], @"inputContrast", [NSNumber numberWithFloat:1.14], @"inputSaturation", [NSNumber numberWithFloat:0.0], nil].outputImage;
+    /*
     if (self.gradient == nil){
+        CGFloat threshold = 0.3;
         CGSize size  = CGSizeMake(40.0, 1.0);
         CGRect r = CGRectZero;
         r.size = size;
@@ -452,7 +454,7 @@
         
         [[UIColor whiteColor] setFill];
         [[UIBezierPath bezierPathWithRect:r] fill];
-        r.size.width =  r.size.width / 2.0;
+        r.size.width =  r.size.width  * threshold;
         
         [[UIColor blackColor] setFill];
         [[UIBezierPath bezierPathWithRect:r] fill];
@@ -462,6 +464,7 @@
         self.gradient =  [[CIImage alloc] initWithCGImage:gs.CGImage options:nil];
     }
     return [CIFilter filterWithName:@"CIColorMap" keysAndValues:kCIInputImageKey, image, @"inputGradientImage",self.gradient, nil].outputImage;
+     */
 
 }
 
