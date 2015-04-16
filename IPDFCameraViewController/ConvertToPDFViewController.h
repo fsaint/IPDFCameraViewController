@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "IPDFDocument.h"
+#import "PDFGenerationDelegate.h"
 
 @interface ConvertToPDFViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *progress_image_view;
 @property (nonatomic, strong) IPDFDocument *document;
+@property (nonatomic,weak)  id<PDFMakerViewControllerDelegate> pdf_delegate;
 @end

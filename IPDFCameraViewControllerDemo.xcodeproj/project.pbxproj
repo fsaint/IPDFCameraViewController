@@ -49,6 +49,7 @@
 		B52090991ADD7B8400E44C59 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B52D4EDA1AE00C6800975FEF /* IPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPDFDocument.h; sourceTree = "<group>"; };
 		B52D4EDB1AE00C6800975FEF /* IPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPDFDocument.m; sourceTree = "<group>"; };
+		B52D4EE31AE05D2100975FEF /* PDFGenerationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFGenerationDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +103,7 @@
 		B52090781ADD7B1400E44C59 /* IPDFCameraViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B52D4EE31AE05D2100975FEF /* PDFGenerationDelegate.h */,
 				B52090791ADD7B3F00E44C59 /* SinglePlageViewController.m */,
 				B520907A1ADD7B3F00E44C59 /* SinglePlageViewController.h */,
 				B520907B1ADD7B3F00E44C59 /* PDFMakerViewController.storyboard */,

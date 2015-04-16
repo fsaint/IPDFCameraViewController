@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "IPDFCameraViewController.h"
-@interface PDFMakerViewController : UITableViewController <IPDFCameraViewControllerDelegate>
 
+#import "PDFGenerationDelegate.h"
+@class PDFMakerViewController;
+
+
+
+
+@interface PDFMakerViewController : UITableViewController <IPDFCameraViewControllerDelegate>
+@property (nonatomic,weak)  id<PDFMakerViewControllerDelegate> pdf_delegate;
 @end

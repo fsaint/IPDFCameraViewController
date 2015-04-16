@@ -11,7 +11,7 @@
 #import "SinglePlageViewController.h"
 #import "ConvertToPDFViewController.h"
 #import "IPDFDocument.h"
-
+#import "PDFGenerationDelegate.h"
 
 @interface PDFMakerViewController ()
 @property (nonatomic, strong) IPDFDocument *document;
@@ -117,6 +117,7 @@
         
         if ([self.document.page_images count] > 0){
             ConvertToPDFViewController *convert = (ConvertToPDFViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
+            convert.pdf_delegate = self.pdf_delegate;
             convert.document =  self.document;
         }
         

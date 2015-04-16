@@ -23,6 +23,9 @@
     __weak typeof(&*self) weakself = self;
     [self generatePDF:@"a_file.pdf" finishedBlock:^(NSString *pdf_file){
         weakself.output_path = pdf_file;
+        
+        if (weakself.pdf_delegate)
+            [weakself.pdf_delegate generatedDocument:pdf_file controller:self];
         [weakself performSegueWithIdentifier:@"finish" sender:weakself];
     } progress:^(NSUInteger index, UIImage *image){
         weakself.progress_image_view.image = image;
@@ -125,8 +128,6 @@
         FinishViewController *dest = (FinishViewController *) segue.destinationViewController;
         dest.file_path = self.output_path;
         dest.preview_image = self.document.page_images[0];
-        
-        
     }
 }
 
