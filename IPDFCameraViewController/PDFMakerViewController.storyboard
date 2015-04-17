@@ -35,16 +35,28 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jOr-Fd-B7N" id="xat-OG-AeE">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hh9-Ra-9qD">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hh9-Ra-9qD">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="279"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvG-hC-cfc">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvG-hC-cfc">
                                             <rect key="frame" x="204" y="41" width="192" height="198"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="192" id="Xoe-Vi-pRp"/>
+                                                <constraint firstAttribute="height" constant="198" id="a5q-Mx-siH"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="151"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerX" secondItem="lvG-hC-cfc" secondAttribute="centerX" id="8UV-8d-C8H"/>
+                                        <constraint firstItem="hh9-Ra-9qD" firstAttribute="top" secondItem="xat-OG-AeE" secondAttribute="topMargin" constant="-8" id="XEf-NU-WED"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hh9-Ra-9qD" secondAttribute="bottom" constant="-8" id="aVe-B2-fYA"/>
+                                        <constraint firstItem="hh9-Ra-9qD" firstAttribute="leading" secondItem="xat-OG-AeE" secondAttribute="leadingMargin" constant="-8" id="b7F-GM-xfU"/>
+                                        <constraint firstAttribute="centerY" secondItem="lvG-hC-cfc" secondAttribute="centerY" id="fpz-sA-frf"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hh9-Ra-9qD" secondAttribute="trailing" constant="-8" id="t9L-dq-d3e"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="page_label" destination="lvG-hC-cfc" id="BVG-JE-LuU"/>
