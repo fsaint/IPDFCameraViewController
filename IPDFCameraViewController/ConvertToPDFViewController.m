@@ -12,29 +12,83 @@
 
 @interface ConvertToPDFViewController ()
 @property (nonatomic,strong) NSString *output_path;
+@property (nonatomic,assign) BOOL finished;
 @end
 
 @implementation ConvertToPDFViewController
 
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    
+    if (self.finished){
+        self.output_path = [self renameOutputFile:self.output_path];
+        if (self.pdf_delegate)
+            [self.pdf_delegate generatedDocument:self.output_path controller:self];
+        [self performSegueWithIdentifier:@"finish" sender:self];
+
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // start generating PS
+    
+    self.file_name.text = @"new file";
+    self.file_name.delegate = self;
+    
+    
+    
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
     __weak typeof(&*self) weakself = self;
-    [self generatePDF:@"a_file.pdf" finishedBlock:^(NSString *pdf_file){
+    [self generatePDF:self.file_name.text finishedBlock:^(NSString *pdf_file){
         weakself.output_path = pdf_file;
+        [weakself.spinner stopAnimating];
+        weakself.spinner.hidden = YES;
+        weakself.progress_message.text = @"Done";
+        weakself.finished = YES;
+        if (![weakself.file_name isFirstResponder]){
+            // User changing the name?
+            if (weakself.pdf_delegate)
+                [weakself.pdf_delegate generatedDocument:pdf_file controller:self];
+            [weakself performSegueWithIdentifier:@"finish" sender:weakself];
+        }
         
-        if (weakself.pdf_delegate)
-            [weakself.pdf_delegate generatedDocument:pdf_file controller:self];
-        [weakself performSegueWithIdentifier:@"finish" sender:weakself];
     } progress:^(NSUInteger index, UIImage *image){
         weakself.progress_image_view.image = image;
     }];
+    
+    [self.file_name becomeFirstResponder];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSString *)documentsDirectory {
+    NSArray *arrayPaths =
+    NSSearchPathForDirectoriesInDomains(
+                                        NSDocumentDirectory,
+                                        NSUserDomainMask,
+                                        YES);
+    NSString *path = [arrayPaths objectAtIndex:0];
+    return path;
+}
+
+- (NSString *)renameOutputFile:(NSString *)pdfFileName {
+    NSString *final_name = pdfFileName;
+    if ([self.file_name.text length] > 0){
+        NSFileManager * man = [NSFileManager defaultManager];
+        final_name = [[self documentsDirectory] stringByAppendingPathComponent:self.file_name.text];
+        
+        if (![final_name isEqualToString:pdfFileName] && [man fileExistsAtPath:final_name])
+            [man removeItemAtPath:final_name error:nil];
+        
+        [man moveItemAtPath:pdfFileName toPath:final_name error:nil];
+        
+    }
+    return final_name;
 }
 
 /*
@@ -49,13 +103,11 @@
 
 -(void)generatePDF:(NSString *)fileName finishedBlock:(void (^)(NSString *filePath))completion progress:(void (^)(NSUInteger page, UIImage *page_image))progress{
 
-    NSArray *arrayPaths =
-    NSSearchPathForDirectoriesInDomains(
-                                        NSDocumentDirectory,
-                                        NSUserDomainMask,
-                                        YES);
-    NSString *path = [arrayPaths objectAtIndex:0];
-    NSString* pdfFileName = fileName ? [path stringByAppendingPathComponent:fileName] : [path stringByAppendingPathComponent:@"file.pdf"];
+    NSString *path;
+    path = [self documentsDirectory];
+    NSString* pdfFileName = fileName ? [path stringByAppendingPathComponent:fileName] : [path stringByAppendingPathComponent:@"temp_file_name.pdf"];
+    
+    
     if ([[NSFileManager defaultManager] fileExistsAtPath:pdfFileName])
         [[NSFileManager defaultManager] removeItemAtPath:pdfFileName error:nil];
     
@@ -107,9 +159,13 @@
             }
         }];
         
+        
+        
         if (completion){
             dispatch_sync(dispatch_get_main_queue(), ^{
-                completion(pdfFileName);
+                NSString *final_name;
+                final_name = [self renameOutputFile:pdfFileName];
+                completion(final_name);
             });
             
         }

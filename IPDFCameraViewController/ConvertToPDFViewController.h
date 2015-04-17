@@ -11,8 +11,11 @@
 #import "IPDFDocument.h"
 #import "PDFGenerationDelegate.h"
 
-@interface ConvertToPDFViewController : UIViewController
+@interface ConvertToPDFViewController : UIViewController <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet UILabel *progress_message;
 @property (weak, nonatomic) IBOutlet UIImageView *progress_image_view;
 @property (nonatomic, strong) IPDFDocument *document;
+@property (weak, nonatomic) IBOutlet UITextField *file_name;
 @property (nonatomic,weak)  id<PDFMakerViewControllerDelegate> pdf_delegate;
 @end

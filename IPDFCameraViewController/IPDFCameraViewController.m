@@ -149,5 +149,8 @@
     [self.cameraViewController stop];
 }
 
+-(BOOL)shouldAutorotate{
+    return NO;
+}
 
 @end

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="a80-7L-bdZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="a80-7L-bdZ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -100,17 +100,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="BU4-c2-4xK">
-                                <rect key="frame" x="282" y="55" width="37" height="37"/>
+                                <rect key="frame" x="386" y="72" width="37" height="37"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="37" id="C6D-Fh-Bb0"/>
-                                    <constraint firstAttribute="height" constant="37" id="xIT-Og-khU"/>
+                                    <constraint firstAttribute="height" constant="37" id="6H4-ya-18D"/>
+                                    <constraint firstAttribute="width" constant="37" id="qNM-TG-g64"/>
                                 </constraints>
                             </activityIndicatorView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cRX-LC-Afq">
                                 <rect key="frame" x="0.0" y="117" width="600" height="483"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Converting to PDF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKa-AL-cai">
-                                <rect key="frame" x="229" y="20" width="142" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Converting to PDF" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKa-AL-cai">
+                                <rect key="frame" x="229" y="80" width="142" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="uGe-GX-w97"/>
                                     <constraint firstAttribute="width" constant="142" id="v1y-Rq-feN"/>
@@ -119,22 +119,38 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yo9-w6-rgY">
+                                <rect key="frame" x="120" y="40" width="360" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OiK-E8-8B0"/>
+                                    <constraint firstAttribute="width" constant="360" id="SrK-BH-8eY"/>
+                                </constraints>
+                                <color key="textColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="cRX-LC-Afq" secondAttribute="trailing" constant="-16" id="5qu-4q-WQQ"/>
-                            <constraint firstItem="TKa-AL-cai" firstAttribute="top" secondItem="RrJ-kr-QG2" secondAttribute="bottom" id="H1v-Mq-VwF"/>
-                            <constraint firstAttribute="centerX" secondItem="BU4-c2-4xK" secondAttribute="centerX" id="HXT-vn-Et8"/>
-                            <constraint firstItem="BU4-c2-4xK" firstAttribute="top" secondItem="TKa-AL-cai" secondAttribute="bottom" constant="14" id="Nhf-Cl-Ia8"/>
-                            <constraint firstItem="cRX-LC-Afq" firstAttribute="leading" secondItem="L6f-WY-LaY" secondAttribute="leadingMargin" constant="-16" id="Wjf-yE-oJt"/>
+                            <constraint firstItem="cRX-LC-Afq" firstAttribute="top" secondItem="L6f-WY-LaY" secondAttribute="topMargin" constant="117" id="4z9-Zh-4tJ"/>
+                            <constraint firstItem="TKa-AL-cai" firstAttribute="top" secondItem="RrJ-kr-QG2" secondAttribute="bottom" constant="60" id="H1v-Mq-VwF"/>
+                            <constraint firstItem="TKa-AL-cai" firstAttribute="centerY" secondItem="BU4-c2-4xK" secondAttribute="centerY" id="IXf-Sw-NOI"/>
+                            <constraint firstItem="Yo9-w6-rgY" firstAttribute="top" secondItem="RrJ-kr-QG2" secondAttribute="bottom" constant="20" id="RLa-tT-KZL"/>
+                            <constraint firstItem="cRX-LC-Afq" firstAttribute="leading" secondItem="L6f-WY-LaY" secondAttribute="leadingMargin" constant="-16" id="RfQ-ev-ynY"/>
                             <constraint firstAttribute="centerX" secondItem="TKa-AL-cai" secondAttribute="centerX" id="Xj6-M6-BR6"/>
-                            <constraint firstItem="oqS-0O-iOO" firstAttribute="top" secondItem="cRX-LC-Afq" secondAttribute="bottom" id="iUK-Ml-UBe"/>
-                            <constraint firstItem="cRX-LC-Afq" firstAttribute="top" secondItem="BU4-c2-4xK" secondAttribute="bottom" constant="25" id="mWH-8G-f6B"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cRX-LC-Afq" secondAttribute="trailing" constant="-16" id="k10-pM-Rj9"/>
+                            <constraint firstAttribute="centerX" secondItem="Yo9-w6-rgY" secondAttribute="centerX" id="nDn-dm-0D1"/>
+                            <constraint firstItem="BU4-c2-4xK" firstAttribute="leading" secondItem="TKa-AL-cai" secondAttribute="trailing" constant="15" id="sKZ-wK-GVT"/>
+                            <constraint firstItem="oqS-0O-iOO" firstAttribute="top" secondItem="cRX-LC-Afq" secondAttribute="bottom" id="uVo-3X-R3R"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="O0a-e9-jBi"/>
                     <connections>
+                        <outlet property="file_name" destination="Yo9-w6-rgY" id="rfN-sV-s9F"/>
                         <outlet property="progress_image_view" destination="cRX-LC-Afq" id="BU4-oh-AMz"/>
+                        <outlet property="progress_message" destination="TKa-AL-cai" id="nCd-60-Cw6"/>
+                        <outlet property="spinner" destination="BU4-c2-4xK" id="9HI-ih-UU1"/>
                         <segue destination="U9f-eH-0Mx" kind="show" identifier="finish" id="bxx-PA-xeE"/>
                     </connections>
                 </viewController>
