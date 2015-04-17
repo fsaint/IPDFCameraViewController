@@ -24,6 +24,7 @@
 		B52D4EDC1AE00C6800975FEF /* IPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = B52D4EDB1AE00C6800975FEF /* IPDFDocument.m */; };
 		B554D5701AE0905400024CBA /* PDFSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B554D56F1AE0905400024CBA /* PDFSplitViewController.m */; };
 		B554D5731AE0931A00024CBA /* PDFPageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B554D5721AE0931A00024CBA /* PDFPageTableViewCell.m */; };
+		B5B923941AE15FD0009706BB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B923931AE15FD0009706BB /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		B554D56F1AE0905400024CBA /* PDFSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFSplitViewController.m; sourceTree = "<group>"; };
 		B554D5711AE0931A00024CBA /* PDFPageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPageTableViewCell.h; sourceTree = "<group>"; };
 		B554D5721AE0931A00024CBA /* PDFPageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPageTableViewCell.m; sourceTree = "<group>"; };
+		B5B923931AE15FD0009706BB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5B923941AE15FD0009706BB /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +75,7 @@
 		22F8A0001A6279030099DC69 = {
 			isa = PBXGroup;
 			children = (
+				B5B923931AE15FD0009706BB /* MobileCoreServices.framework */,
 				B52090781ADD7B1400E44C59 /* IPDFCameraViewController */,
 				22F8A00B1A6279030099DC69 /* IPDFCameraViewControllerDemo */,
 				22F8A00A1A6279030099DC69 /* Products */,

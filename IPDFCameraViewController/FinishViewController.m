@@ -7,6 +7,7 @@
 //
 
 #import "FinishViewController.h"
+@import MobileCoreServices;
 
 @interface FinishViewController ()
 @property (nonatomic,strong) UIDocumentInteractionController *document_popup;
@@ -41,6 +42,7 @@
     
     NSURL *url = [NSURL fileURLWithPath:self.file_path];
     self.document_popup = [UIDocumentInteractionController interactionControllerWithURL:url];
+    self.document_popup.UTI = (__bridge NSString *)UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, CFSTR("application/pdf"), NULL);
     [self.document_popup setDelegate:self];
     [self.document_popup presentOpenInMenuFromRect:sender.frame inView:self.view animated:YES];
     
