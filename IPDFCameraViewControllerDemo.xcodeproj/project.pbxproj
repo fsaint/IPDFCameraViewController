@@ -22,6 +22,7 @@
 		B520909A1ADD7B8400E44C59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B52090981ADD7B8400E44C59 /* main.m */; };
 		B520909B1ADD7B8400E44C59 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B52090991ADD7B8400E44C59 /* Info.plist */; };
 		B52D4EDC1AE00C6800975FEF /* IPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = B52D4EDB1AE00C6800975FEF /* IPDFDocument.m */; };
+		B554D5701AE0905400024CBA /* PDFSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B554D56F1AE0905400024CBA /* PDFSplitViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		B52D4EDA1AE00C6800975FEF /* IPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPDFDocument.h; sourceTree = "<group>"; };
 		B52D4EDB1AE00C6800975FEF /* IPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPDFDocument.m; sourceTree = "<group>"; };
 		B52D4EE31AE05D2100975FEF /* PDFGenerationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFGenerationDelegate.h; sourceTree = "<group>"; };
+		B554D56E1AE0905400024CBA /* PDFSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSplitViewController.h; sourceTree = "<group>"; };
+		B554D56F1AE0905400024CBA /* PDFSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFSplitViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				B52090881ADD7B3F00E44C59 /* Base.lproj */,
 				B52D4EDA1AE00C6800975FEF /* IPDFDocument.h */,
 				B52D4EDB1AE00C6800975FEF /* IPDFDocument.m */,
+				B554D56E1AE0905400024CBA /* PDFSplitViewController.h */,
+				B554D56F1AE0905400024CBA /* PDFSplitViewController.m */,
 			);
 			path = IPDFCameraViewController;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 				B520908F1ADD7B3F00E44C59 /* PDFMakerViewController.m in Sources */,
 				B52090921ADD7B3F00E44C59 /* IPDFCameraView.m in Sources */,
 				B520909A1ADD7B8400E44C59 /* main.m in Sources */,
+				B554D5701AE0905400024CBA /* PDFSplitViewController.m in Sources */,
 				B52090711ADD767000E44C59 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
