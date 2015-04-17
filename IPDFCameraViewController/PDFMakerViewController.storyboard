@@ -25,17 +25,30 @@
         <scene sceneID="cmt-zV-qbq">
             <objects>
                 <tableViewController id="EwR-wW-zo6" customClass="PDFMakerViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bfH-ZR-Dva">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="280" sectionHeaderHeight="22" sectionFooterHeight="22" id="bfH-ZR-Dva">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CELL" id="jOr-Fd-B7N">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CELL" rowHeight="280" id="jOr-Fd-B7N" customClass="PDFPageTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jOr-Fd-B7N" id="xat-OG-AeE">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hh9-Ra-9qD">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="279"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvG-hC-cfc">
+                                            <rect key="frame" x="204" y="41" width="192" height="198"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="151"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="page_label" destination="lvG-hC-cfc" id="BVG-JE-LuU"/>
+                                    <outlet property="page_thumb" destination="hh9-Ra-9qD" id="AY2-S8-S7U"/>
                                     <segue destination="TLg-Sh-nyo" kind="showDetail" identifier="details" id="3Tu-GF-55K"/>
                                 </connections>
                             </tableViewCell>
@@ -271,6 +284,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xzk-v7-pXP"/>
+        <segue reference="3Tu-GF-55K"/>
     </inferredMetricsTieBreakers>
 </document>

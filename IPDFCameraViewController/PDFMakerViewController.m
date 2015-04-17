@@ -12,6 +12,7 @@
 #import "ConvertToPDFViewController.h"
 #import "IPDFDocument.h"
 #import "PDFGenerationDelegate.h"
+#import "PDFPageTableViewCell.h"
 
 @interface PDFMakerViewController ()
 @property (nonatomic, strong) IPDFDocument *document;
@@ -64,11 +65,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CELL" forIndexPath:indexPath];
+    PDFPageTableViewCell *cell = (PDFPageTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CELL" forIndexPath:indexPath];
     
+    cell.page_thumb.image = [_document.page_images objectAtIndex:indexPath.row];
     
-    cell.imageView.image = [_document.page_images objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"Page %@",@(indexPath.row + 1)];
+    cell.page_label.text = [NSString stringWithFormat:@"%@",@(indexPath.row + 1)];
     return cell;
 }
 
