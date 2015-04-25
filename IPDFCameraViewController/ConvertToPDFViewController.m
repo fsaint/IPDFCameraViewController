@@ -84,9 +84,16 @@
 
 - (NSString *)renameOutputFile:(NSString *)pdfFileName {
     NSString *final_name = pdfFileName;
+    
+    
+    
     if ([self.file_name.text length] > 0){
         NSFileManager * man = [NSFileManager defaultManager];
         final_name = [[self documentsDirectory] stringByAppendingPathComponent:self.file_name.text];
+        
+        if (![[final_name lowercaseString] hasSuffix:@".pdf"])
+            final_name = [NSString stringWithFormat:@"%@.pdf", final_name];
+        
         
         if (![final_name isEqualToString:pdfFileName] && [man fileExistsAtPath:final_name])
             [man removeItemAtPath:final_name error:nil];
@@ -188,10 +195,7 @@
     if ([segue.identifier isEqualToString:@"finish"]){
         NSLog(@"Finished");
         FinishViewController *dest = (FinishViewController *) segue.destinationViewController;
-        if ([[self.output_path lowercaseString] hasSuffix:@".pdf"])
-            dest.file_path = self.output_path;
-        else
-            dest.file_path = [NSString stringWithFormat:@"%@.pdf", self.output_path];
+        dest.file_path = self.output_path;
         dest.preview_image = self.document.page_images[0];
     }
 }
