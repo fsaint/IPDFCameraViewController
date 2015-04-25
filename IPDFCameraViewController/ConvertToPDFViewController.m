@@ -188,7 +188,10 @@
     if ([segue.identifier isEqualToString:@"finish"]){
         NSLog(@"Finished");
         FinishViewController *dest = (FinishViewController *) segue.destinationViewController;
-        dest.file_path = self.output_path;
+        if ([[self.output_path lowercaseString] hasSuffix:@".pdf"])
+            dest.file_path = self.output_path;
+        else
+            dest.file_path = [NSString stringWithFormat:@"%@.pdf", self.output_path];
         dest.preview_image = self.document.page_images[0];
     }
 }
