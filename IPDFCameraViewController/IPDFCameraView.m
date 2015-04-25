@@ -207,11 +207,12 @@
     
     CIImage *image = [CIImage imageWithCVPixelBuffer:pixelBuffer];
     
-    if (self.cameraViewType != IPDFCameraViewTypeNormal)
+    if (self.cameraViewType == IPDFCameraViewTypeBlackAndWhite)
     {
-        image = [self filteredImageUsingEnhanceFilterOnImage:image];
+        //image = [self filteredImageUsingEnhanceFilterOnImage:image];
+        image = [self filteredImageUsingHighContrast:image];
     }
-    else
+    else if (self.cameraViewType == IPDFCameraViewTypeNormal)
     {
         image = [self filteredImageUsingContrastFilterOnImage:image];
     }
@@ -382,7 +383,8 @@
              
              if (weakSelf.cameraViewType == IPDFCameraViewTypeBlackAndWhite)
              {
-                 enhancedImage = [self filteredImageUsingEnhanceFilterOnImage:enhancedImage];
+                 enhancedImage = [self filteredImageUsingHighContrast:enhancedImage];
+                 //enhancedImage = [self filteredImageUsingEnhanceFilterOnImage:enhancedImage];
              }
              else
              {
@@ -440,10 +442,8 @@
     }];
 }
 
-- (CIImage *)filteredImageUsingEnhanceFilterOnImage:(CIImage *)image
-{
-    return [CIFilter filterWithName:@"CIColorControls" keysAndValues:kCIInputImageKey, image, @"inputBrightness", [NSNumber numberWithFloat:0.0], @"inputContrast", [NSNumber numberWithFloat:1.14], @"inputSaturation", [NSNumber numberWithFloat:0.0], nil].outputImage;
-    /*
+
+- (CIImage *)filteredImageUsingHighContrast:(CIImage *)image{
     if (self.gradient == nil){
         CGFloat threshold = 0.3;
         CGSize size  = CGSizeMake(40.0, 1.0);
@@ -464,8 +464,12 @@
         self.gradient =  [[CIImage alloc] initWithCGImage:gs.CGImage options:nil];
     }
     return [CIFilter filterWithName:@"CIColorMap" keysAndValues:kCIInputImageKey, image, @"inputGradientImage",self.gradient, nil].outputImage;
-     */
 
+}
+
+- (CIImage *)filteredImageUsingEnhanceFilterOnImage:(CIImage *)image
+{
+    return [CIFilter filterWithName:@"CIColorControls" keysAndValues:kCIInputImageKey, image, @"inputBrightness", [NSNumber numberWithFloat:0.0], @"inputContrast", [NSNumber numberWithFloat:1.14], @"inputSaturation", [NSNumber numberWithFloat:0.0], nil].outputImage;
 }
 
 - (CIImage *)filteredImageUsingContrastFilterOnImage:(CIImage *)image
@@ -539,5 +543,26 @@ BOOL rectangleDetectionConfidenceHighEnough(float confidence)
 {
     return (confidence > 1.0);
 }
-
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    [super touchesMoved:touches withEvent:event];
+    UITouch *t = [touches anyObject];
+    CGPoint p = [t locationInView:self];
+    CGFloat threshold = p.x / (2.0 * self.frame.size.width);
+    CGSize size  = CGSizeMake(40.0, 1.0);
+    CGRect r = CGRectZero;
+    r.size = size;
+    UIGraphicsBeginImageContext(size);
+    
+    
+    [[UIColor whiteColor] setFill];
+    [[UIBezierPath bezierPathWithRect:r] fill];
+    r.size.width =  r.size.width  * threshold;
+    
+    [[UIColor blackColor] setFill];
+    [[UIBezierPath bezierPathWithRect:r] fill];
+    
+    UIImage *gs = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.gradient =  [[CIImage alloc] initWithCGImage:gs.CGImage options:nil];
+}
 @end
