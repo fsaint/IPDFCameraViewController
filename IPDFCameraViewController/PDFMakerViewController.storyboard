@@ -119,24 +119,24 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yo9-w6-rgY">
-                                <rect key="frame" x="120" y="40" width="360" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="dasdasd" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yo9-w6-rgY">
+                                <rect key="frame" x="16" y="47" width="568" height="42"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="OiK-E8-8B0"/>
-                                    <constraint firstAttribute="width" constant="360" id="SrK-BH-8eY"/>
+                                    <constraint firstAttribute="height" constant="42" id="OiK-E8-8B0"/>
+                                    <constraint firstAttribute="width" constant="568" id="SrK-BH-8eY"/>
                                 </constraints>
                                 <color key="textColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="cRX-LC-Afq" firstAttribute="top" secondItem="L6f-WY-LaY" secondAttribute="topMargin" constant="117" id="4z9-Zh-4tJ"/>
                             <constraint firstItem="TKa-AL-cai" firstAttribute="top" secondItem="RrJ-kr-QG2" secondAttribute="bottom" constant="60" id="H1v-Mq-VwF"/>
                             <constraint firstItem="TKa-AL-cai" firstAttribute="centerY" secondItem="BU4-c2-4xK" secondAttribute="centerY" id="IXf-Sw-NOI"/>
-                            <constraint firstItem="Yo9-w6-rgY" firstAttribute="top" secondItem="RrJ-kr-QG2" secondAttribute="bottom" constant="20" id="RLa-tT-KZL"/>
+                            <constraint firstItem="Yo9-w6-rgY" firstAttribute="top" secondItem="RrJ-kr-QG2" secondAttribute="bottom" constant="27" id="RLa-tT-KZL"/>
                             <constraint firstItem="cRX-LC-Afq" firstAttribute="leading" secondItem="L6f-WY-LaY" secondAttribute="leadingMargin" constant="-16" id="RfQ-ev-ynY"/>
                             <constraint firstAttribute="centerX" secondItem="TKa-AL-cai" secondAttribute="centerX" id="Xj6-M6-BR6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cRX-LC-Afq" secondAttribute="trailing" constant="-16" id="k10-pM-Rj9"/>

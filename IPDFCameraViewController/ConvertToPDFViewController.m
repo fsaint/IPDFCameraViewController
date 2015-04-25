@@ -17,6 +17,12 @@
 
 @implementation ConvertToPDFViewController
 
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if ([string isEqualToString:@"\n"])
+        [textField resignFirstResponder];
+    return YES;
+}
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     
     if (self.finished){
