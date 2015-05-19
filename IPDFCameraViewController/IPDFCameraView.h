@@ -12,7 +12,7 @@ typedef NS_ENUM(NSInteger,IPDFCameraViewType)
 {
     IPDFCameraViewTypeBlackAndWhite,
     IPDFCameraViewTypeNormal,
-    IPDFCameraViewTypeUltraContrast,
+    IPDFCameraViewTypeUltraContrast
 };
 
 @interface IPDFCameraView : UIView

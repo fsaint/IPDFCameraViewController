@@ -17,6 +17,12 @@
 
 @implementation ConvertToPDFViewController
 
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if ([string isEqualToString:@"\n"])
+        [textField resignFirstResponder];
+    return YES;
+}
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     
     if (self.finished){
@@ -78,9 +84,16 @@
 
 - (NSString *)renameOutputFile:(NSString *)pdfFileName {
     NSString *final_name = pdfFileName;
+    
+    
+    
     if ([self.file_name.text length] > 0){
         NSFileManager * man = [NSFileManager defaultManager];
         final_name = [[self documentsDirectory] stringByAppendingPathComponent:self.file_name.text];
+        
+        if (![[final_name lowercaseString] hasSuffix:@".pdf"])
+            final_name = [NSString stringWithFormat:@"%@.pdf", final_name];
+        
         
         if (![final_name isEqualToString:pdfFileName] && [man fileExistsAtPath:final_name])
             [man removeItemAtPath:final_name error:nil];

@@ -7,8 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+@import UIKit;
 
 @interface IPDFDocument : NSObject
 @property (nonatomic,strong) NSMutableArray *page_images;
-
+/*
+-(void)addPage:(UIImage *)page_image;
+-(NSInteger)numberOfPages;
+-(UIImage *)page:(int)page;
+-(UIImage *)thumb:(int)page;
+*/
 @end

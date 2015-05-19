@@ -17,8 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UINavigationController *navigationController = [self.viewControllers lastObject];
+    navigationController.topViewController.navigationItem.leftBarButtonItem = self.displayModeButtonItem;
+    
     self.delegate = self;
-    self.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryOverlay;
+    //self.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryOverlay;
 }
 
 - (void)didReceiveMemoryWarning {
