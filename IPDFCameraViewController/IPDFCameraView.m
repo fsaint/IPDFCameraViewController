@@ -146,10 +146,18 @@
     
     _cameraViewType = cameraViewType;
     
-    
+    viewWithBlurredBackground.alpha = 0.0;
+    [UIView animateWithDuration:0.1 animations:^{
+        viewWithBlurredBackground.alpha = 1.0;
+    }];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^
     {
-        [viewWithBlurredBackground removeFromSuperview];
+        
+        [UIView animateWithDuration:0.1 animations:^{
+            viewWithBlurredBackground.alpha = 0.0;
+            [viewWithBlurredBackground removeFromSuperview];
+        }];
+        
     });
 }
 
@@ -207,14 +215,20 @@
     
     CIImage *image = [CIImage imageWithCVPixelBuffer:pixelBuffer];
     
-    if (self.cameraViewType != IPDFCameraViewTypeNormal)
-    {
-        image = [self filteredImageUsingEnhanceFilterOnImage:image];
+    switch (self.cameraViewType) {
+        case IPDFCameraViewTypeBlackAndWhite:
+            image = [self filteredImageUsingEnhanceFilterOnImage:image];
+            break;
+        case IPDFCameraViewTypeNormal:
+            image = [self filteredImageUsingContrastFilterOnImage:image];
+            break;
+        case IPDFCameraViewTypeUltraContrast:
+            image = [self filteredImageUsingUltraContrastImage:image];
+            break;
+        default:
+            break;
     }
-    else
-    {
-        image = [self filteredImageUsingContrastFilterOnImage:image];
-    }
+    
     
     if (self.isBorderDetectionEnabled)
     {
@@ -376,18 +390,26 @@
      {
          NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
          
-         if (weakSelf.cameraViewType == IPDFCameraViewTypeBlackAndWhite || weakSelf.isBorderDetectionEnabled)
+         if (weakSelf.isBorderDetectionEnabled)
          {
              CIImage *enhancedImage = [CIImage imageWithData:imageData];
              
-             if (weakSelf.cameraViewType == IPDFCameraViewTypeBlackAndWhite)
-             {
-                 enhancedImage = [self filteredImageUsingEnhanceFilterOnImage:enhancedImage];
+            
+             switch (self.cameraViewType) {
+                 case IPDFCameraViewTypeBlackAndWhite:
+                     enhancedImage = [self filteredImageUsingEnhanceFilterOnImage:enhancedImage];
+                     break;
+                 case IPDFCameraViewTypeNormal:
+                     enhancedImage = [self filteredImageUsingContrastFilterOnImage:enhancedImage];
+                     break;
+                 case IPDFCameraViewTypeUltraContrast:
+                     enhancedImage = [self filteredImageUsingUltraContrastImage:enhancedImage];
+                     break;
+                 default:
+                     break;
              }
-             else
-             {
-                 enhancedImage = [self filteredImageUsingContrastFilterOnImage:enhancedImage];
-             }
+
+             
              
              if (weakSelf.isBorderDetectionEnabled && rectangleDetectionConfidenceHighEnough(_imageDedectionConfidence))
              {
@@ -399,6 +421,7 @@
                  }
              }
              
+             enhancedImage = [self cropBorders:enhancedImage];
              
              UIImageOrientation orientation = [self imageFromCurrentDeviceOrientation];
              
@@ -438,6 +461,51 @@
         if (!completion) return;
         completion();
     }];
+}
+
+- (CIImage *)filteredImageUsingUltraContrastImage:(CIImage *)image
+{
+    //return [CIFilter filterWithName:@"CIColorControls" keysAndValues:kCIInputImageKey, image, @"inputBrightness", [NSNumber numberWithFloat:0.0], @"inputContrast", [NSNumber numberWithFloat:1.14], @"inputSaturation", [NSNumber numberWithFloat:0.0], nil].outputImage;
+     if (self.gradient == nil){
+         CGFloat threshold = 0.3;
+         CGSize size  = CGSizeMake(40.0, 1.0);
+         CGRect r = CGRectZero;
+         r.size = size;
+         UIGraphicsBeginImageContext(size);
+         
+         
+         [[UIColor whiteColor] setFill];
+         [[UIBezierPath bezierPathWithRect:r] fill];
+         r.size.width =  r.size.width  * threshold;
+         
+         [[UIColor blackColor] setFill];
+         [[UIBezierPath bezierPathWithRect:r] fill];
+         
+         UIImage *gs = UIGraphicsGetImageFromCurrentImageContext();
+         UIGraphicsEndImageContext();
+         self.gradient =  [[CIImage alloc] initWithCGImage:gs.CGImage options:nil];
+     }
+     return [CIFilter filterWithName:@"CIColorMap" keysAndValues:kCIInputImageKey, image, @"inputGradientImage",self.gradient, nil].outputImage;
+}
+
+
+-(CIImage *)cropBorders:(CIImage *)image{
+    CGRect original = image.extent;
+    CGFloat margin = 40.0;
+    CGRect rect = CGRectMake(original.origin.x+margin, original.origin.y+margin, original.size.width-2 * margin, original.size.height-2 * margin);
+    
+    CIFilter *resizeFilter = [CIFilter filterWithName:@"CILanczosScaleTransform"];
+    [resizeFilter setValue:image forKey:@"inputImage"];
+    [resizeFilter setValue:[NSNumber numberWithFloat:1.0f] forKey:@"inputAspectRatio"];
+    [resizeFilter setValue:[NSNumber numberWithFloat:rect.size.width/original.size.width] forKey:@"inputScale"];
+    
+    CIFilter *cropFilter = [CIFilter filterWithName:@"CICrop"];
+    CIVector *cropRect = [CIVector vectorWithX:rect.origin.x Y:rect.origin.y Z:rect.size.width W:rect.size.height];
+    [cropFilter setValue:resizeFilter.outputImage forKey:@"inputImage"];
+    [cropFilter setValue:cropRect forKey:@"inputRectangle"];
+    CIImage *croppedImage = cropFilter.outputImage;
+    
+    return croppedImage;
 }
 
 - (CIImage *)filteredImageUsingEnhanceFilterOnImage:(CIImage *)image

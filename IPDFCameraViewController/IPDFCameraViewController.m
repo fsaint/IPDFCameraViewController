@@ -97,6 +97,8 @@
 
 - (IBAction)filterToggle:(id)sender
 {
+    
+    
     [self.cameraViewController setCameraViewType:(self.cameraViewController.cameraViewType == IPDFCameraViewTypeBlackAndWhite) ? IPDFCameraViewTypeNormal : IPDFCameraViewTypeBlackAndWhite];
     [self updateTitleLabel];
 }
