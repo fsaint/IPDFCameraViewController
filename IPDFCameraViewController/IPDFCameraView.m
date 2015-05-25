@@ -230,19 +230,19 @@
 
     }
     
-    
     if (self.isBorderDetectionEnabled)
     {
         if (_borderDetectFrame)
         {
             _borderDetectLastRectangleFeature = [self biggestRectangleInRectangles:[[self highAccuracyRectangleDetector] featuresInImage:image]];
+            
             _borderDetectFrame = NO;
         }
         
         if (_borderDetectLastRectangleFeature)
         {
             _imageDedectionConfidence += .5;
-            
+            //NSLog(@"%x: %@ %@",_borderDetectLastRectangleFeature,NSStringFromCGPoint(_borderDetectLastRectangleFeature.topLeft),NSStringFromCGPoint(_borderDetectLastRectangleFeature.topRight));
             image = [self drawHighlightOverlayForPoints:image topLeft:_borderDetectLastRectangleFeature.topLeft topRight:_borderDetectLastRectangleFeature.topRight bottomLeft:_borderDetectLastRectangleFeature.bottomLeft bottomRight:_borderDetectLastRectangleFeature.bottomRight];
         }
         else
@@ -253,6 +253,7 @@
     
     if (self.context && _coreImageContext)
     {
+        NSLog(@"%@", image);
         
         [_coreImageContext drawImage:image inRect:self.bounds fromRect:image.extent];
         [self.context presentRenderbuffer:GL_RENDERBUFFER];
@@ -357,6 +358,23 @@
     }
 }
 
+- (UIImage *)orientationCorrecterUIImage:(CIImage *)enhancedImage
+{
+    UIImageOrientation orientation = [self imageFromCurrentDeviceOrientation];
+    CGFloat w = enhancedImage.extent.size.width,h =  enhancedImage.extent.size.height;
+    
+    if (orientation == UIImageOrientationLeft || orientation == UIImageOrientationRight){
+        h = enhancedImage.extent.size.width;
+        w = enhancedImage.extent.size.height;
+    }
+    
+    UIGraphicsBeginImageContext(CGSizeMake(w, h));
+    [[UIImage imageWithCIImage:enhancedImage scale:1.0 orientation:orientation] drawInRect:CGRectMake(0,0, w, h)];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 - (void)captureImageWithCompletionHander:(void(^)(id data))completionHandler
 {
     if (_isCapturing) return;
@@ -424,19 +442,8 @@
              
              enhancedImage = [self cropBorders:enhancedImage];
              
-             UIImageOrientation orientation = [self imageFromCurrentDeviceOrientation];
-             
-             CGFloat w = enhancedImage.extent.size.width,h =  enhancedImage.extent.size.height;
-             
-             if (orientation == UIImageOrientationLeft || orientation == UIImageOrientationRight){
-                 h = enhancedImage.extent.size.width;
-                 w = enhancedImage.extent.size.height;
-             }
-             
-             UIGraphicsBeginImageContext(CGSizeMake(w, h));
-             [[UIImage imageWithCIImage:enhancedImage scale:1.0 orientation:orientation] drawInRect:CGRectMake(0,0, w, h)];
-             UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-             UIGraphicsEndImageContext();
+             UIImage *image;
+             image = [self orientationCorrecterUIImage:enhancedImage];
              
              [weakSelf hideGLKView:NO completion:nil];
              completionHandler(image);
@@ -468,25 +475,10 @@
 {
     //return [CIFilter filterWithName:@"CIColorControls" keysAndValues:kCIInputImageKey, image, @"inputBrightness", [NSNumber numberWithFloat:0.0], @"inputContrast", [NSNumber numberWithFloat:1.14], @"inputSaturation", [NSNumber numberWithFloat:0.0], nil].outputImage;
      if (self.gradient == nil){
-         CGFloat threshold = 0.3;
-         CGSize size  = CGSizeMake(40.0, 1.0);
-         CGRect r = CGRectZero;
-         r.size = size;
-         UIGraphicsBeginImageContext(size);
-         
-         
-         [[UIColor whiteColor] setFill];
-         [[UIBezierPath bezierPathWithRect:r] fill];
-         r.size.width =  r.size.width  * threshold;
-         
-         [[UIColor blackColor] setFill];
-         [[UIBezierPath bezierPathWithRect:r] fill];
-         
-         UIImage *gs = UIGraphicsGetImageFromCurrentImageContext();
-         UIGraphicsEndImageContext();
-         self.gradient =  [[CIImage alloc] initWithCGImage:gs.CGImage options:nil];
+         self.gradient =  [self imageGradientImage:0.3];
      }
-     return [CIFilter filterWithName:@"CIColorMap" keysAndValues:kCIInputImageKey, image, @"inputGradientImage",self.gradient, nil].outputImage;
+    CIImage *filtered = [CIFilter filterWithName:@"CIColorMap" keysAndValues:kCIInputImageKey, image, @"inputGradientImage",self.gradient, nil].outputImage;
+    return filtered;
 }
 
 
@@ -494,7 +486,8 @@
     CGRect original = image.extent;
     CGFloat margin = 40.0;
     CGRect rect = CGRectMake(original.origin.x+margin, original.origin.y+margin, original.size.width-2 * margin, original.size.height-2 * margin);
-    
+    /*
+     
     CIFilter *resizeFilter = [CIFilter filterWithName:@"CILanczosScaleTransform"];
     [resizeFilter setValue:image forKey:@"inputImage"];
     [resizeFilter setValue:[NSNumber numberWithFloat:1.0f] forKey:@"inputAspectRatio"];
@@ -505,8 +498,8 @@
     [cropFilter setValue:resizeFilter.outputImage forKey:@"inputImage"];
     [cropFilter setValue:cropRect forKey:@"inputRectangle"];
     CIImage *croppedImage = cropFilter.outputImage;
-    
-    return croppedImage;
+    */
+    return [image imageByCroppingToRect:rect];
 }
 
 
@@ -545,10 +538,10 @@
 {
     static CIDetector *detector = nil;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^
-    {
+    //dispatch_once(&onceToken, ^
+    //{
         detector = [CIDetector detectorOfType:CIDetectorTypeRectangle context:nil options:@{CIDetectorAccuracy : CIDetectorAccuracyHigh}];
-    });
+    //});
     return detector;
 }
 
@@ -586,26 +579,40 @@ BOOL rectangleDetectionConfidenceHighEnough(float confidence)
 {
     return (confidence > 1.0);
 }
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    [super touchesMoved:touches withEvent:event];
-    UITouch *t = [touches anyObject];
-    CGPoint p = [t locationInView:self];
-    CGFloat threshold = p.x / (2.0 * self.frame.size.width);
-    CGSize size  = CGSizeMake(40.0, 1.0);
+-(CIImage *)imageGradientImage:(CGFloat)threshold{
+    CGSize size  = CGSizeMake(256.0, 1.0);
     CGRect r = CGRectZero;
     r.size = size;
-    UIGraphicsBeginImageContext(size);
+    CGRect copy = r;
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
     
-    
+    int points = 200;
     [[UIColor whiteColor] setFill];
     [[UIBezierPath bezierPathWithRect:r] fill];
     r.size.width =  r.size.width  * threshold;
-    
+    for (int i=0;i<points;i++){
+        //CGFloat sigm = (points - i)/(CGFloat)points;
+        CGFloat sigm = 1.0/(1.0 + exp(-(10.0 * (points/2-i)/((CGFloat)points))));
+        
+        UIColor *gray = [UIColor colorWithWhite:sigm alpha:1.0];
+        [gray setFill];
+        copy.size.width = (r.size.width  * threshold) + (points - i);
+        [[UIBezierPath bezierPathWithRect:copy] fill];
+        
+    }
     [[UIColor blackColor] setFill];
     [[UIBezierPath bezierPathWithRect:r] fill];
     
     UIImage *gs = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    self.gradient =  [[CIImage alloc] initWithCGImage:gs.CGImage options:nil];
+    return [[CIImage alloc] initWithCGImage:gs.CGImage options:nil];;
+}
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    [super touchesMoved:touches withEvent:event];
+    UITouch *t = [touches anyObject];
+    CGPoint p = [t locationInView:self];
+    CGFloat threshold = p.x / (self.frame.size.width);
+    
+    self.gradient = [self imageGradientImage:threshold];
 }
 @end
