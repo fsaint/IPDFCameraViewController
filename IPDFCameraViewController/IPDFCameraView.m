@@ -253,7 +253,6 @@
     
     if (self.context && _coreImageContext)
     {
-        NSLog(@"%@", image);
         
         [_coreImageContext drawImage:image inRect:self.bounds fromRect:image.extent];
         [self.context presentRenderbuffer:GL_RENDERBUFFER];
@@ -367,12 +366,28 @@
         h = enhancedImage.extent.size.width;
         w = enhancedImage.extent.size.height;
     }
+    CGFloat kMaxResolution = 1024.0;
+    CGFloat ratio = w/h;
+    CGSize size = CGSizeZero;
+    if (ratio > 1) {
+        size.width = kMaxResolution;
+        size.height = roundf(size.width / ratio);
+    }
+    else {
+        size.height = kMaxResolution;
+        size.width = roundf(size.height * ratio);
+    }
+
     
-    UIGraphicsBeginImageContext(CGSizeMake(w, h));
-    [[UIImage imageWithCIImage:enhancedImage scale:1.0 orientation:orientation] drawInRect:CGRectMake(0,0, w, h)];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
+    @autoreleasepool {
+        
+        UIGraphicsBeginImageContext(size);
+        [[UIImage imageWithCIImage:enhancedImage scale:size.height/h orientation:orientation] drawInRect:CGRectMake(0,0, size.width, size.height)];
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image;
+    }
+    
 }
 
 - (void)captureImageWithCompletionHander:(void(^)(id data))completionHandler

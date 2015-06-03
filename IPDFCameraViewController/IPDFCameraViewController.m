@@ -99,7 +99,7 @@
 {
     
     
-    [self.cameraViewController setCameraViewType:(self.cameraViewController.cameraViewType == IPDFCameraViewTypeBlackAndWhite) ? IPDFCameraViewTypeUltraContrast : IPDFCameraViewTypeBlackAndWhite];
+    [self.cameraViewController setCameraViewType:(self.cameraViewController.cameraViewType == IPDFCameraViewTypeBlackAndWhite) ? IPDFCameraViewTypeBlackAndWhite : IPDFCameraViewTypeBlackAndWhite];
     [self updateTitleLabel];
 }
 
@@ -139,9 +139,12 @@
 {
     [self.cameraViewController captureImageWithCompletionHander:^(id data)
     {
+        [self.cameraViewController stop];
         UIImage *image = ([data isKindOfClass:[NSData class]]) ? [UIImage imageWithData:data] : data;
         if (self.camera_delegate){
-            [self.camera_delegate pageSnapped:image from:self];
+            dispatch_async( dispatch_get_main_queue(), ^{
+                [self.camera_delegate pageSnapped:image from:self];
+            });
         }
     }];
 }
