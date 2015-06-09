@@ -99,7 +99,7 @@
 {
     
     
-    [self.cameraViewController setCameraViewType:(self.cameraViewController.cameraViewType == IPDFCameraViewTypeBlackAndWhite) ? IPDFCameraViewTypeBlackAndWhite : IPDFCameraViewTypeBlackAndWhite];
+    [self.cameraViewController setCameraViewType:(self.cameraViewController.cameraViewType == IPDFCameraViewTypeBlackAndWhite) ? IPDFCameraViewTypeNormal : IPDFCameraViewTypeBlackAndWhite];
     [self updateTitleLabel];
 }
 
